@@ -1,0 +1,51 @@
+import React from "react";
+import price from "../../../assets/images/Icons/iconPrice2.png";
+import booking from "../../../assets/images/Icons/iconProccess.png";
+import support from "../../../assets/images/Icons/iconSupport.png";
+import variety from "../../../assets/images/Icons/iconWide.png";
+import SectionHeadTitle from "../../headers/sectionHead/SectionHeadTitle";
+
+const ChooseUs = () => {
+  return (
+    <section className="my-32">
+      <div className="container">
+        <SectionHeadTitle />
+        <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-5">
+          <div className="card bg-base-100  shadow-xl">
+            <div className="card-body items-center text-center">
+              <img src={variety} alt="" />
+              <h2 className="card-title">Wide Variety of Cars</h2>
+              <p>If a dog chews shoes whose shoes does he choose?</p>
+            </div>
+          </div>
+          {/* one  */}
+          <div className="card bg-base-100  shadow-xl">
+            <div className="card-body items-center text-center">
+              <img src={price} alt="" />
+              <h2 className="card-title">Aordable Prices</h2>
+              <p>If a dog chews shoes whose shoes does he choose?</p>
+            </div>
+          </div>
+          {/* two  */}
+          <div className="card bg-base-100  shadow-xl">
+            <div className="card-body items-center text-center">
+              <img src={booking} alt="" />
+              <h2 className="card-title">Easy Booking Process</h2>
+              <p>If a dog chews shoes whose shoes does he choose?</p>
+            </div>
+          </div>
+          {/* three  */}
+          <div className="card bg-base-100  shadow-xl">
+            <div className="card-body items-center text-center">
+              <img src={support} alt="" />
+              <h2 className="card-title">Customer Support</h2>
+              <p>If a dog chews shoes whose shoes does he choose?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ChooseUs;
