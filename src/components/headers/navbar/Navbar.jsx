@@ -1,9 +1,11 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import UserIcons from "../../../assets/images//Icons/userIcon.png";
 import Logo from "../../../assets/images/logo/carLogo.png";
+import { useAuth } from "../../../hooks/useAuth";
 
 const Navbar = () => {
+  const { name } = useAuth();
+
   let Links = (
     <>
       <li>
