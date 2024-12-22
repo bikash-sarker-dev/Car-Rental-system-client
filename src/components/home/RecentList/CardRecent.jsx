@@ -2,7 +2,7 @@ import React from "react";
 
 const CardRecent = () => {
   return (
-    <div className="card group bg-base-100 transition duration-200  rounded-none hover:shadow-xl border border-neutral-100">
+    <div className="card group bg-base-100 transition duration-200  rounded-none hover:shadow-xl border border-neutral-200">
       <figure className="relative">
         <img
           src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
