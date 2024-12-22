@@ -5,11 +5,20 @@ import support from "../../../assets/images/Icons/iconSupport.png";
 import variety from "../../../assets/images/Icons/iconWide.png";
 import SectionHeadTitle from "../../headers/sectionHead/SectionHeadTitle";
 
+let sectionTitleContent = {
+  title: "Why Choose Us?",
+  description:
+    "Highlight your platform's unique selling points to build trust and draw user interest",
+};
+
 const ChooseUs = () => {
   return (
     <section className="my-32">
       <div className="container">
-        <SectionHeadTitle />
+        <SectionHeadTitle
+          title={sectionTitleContent.title}
+          description={sectionTitleContent.description}
+        />
         <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-5">
           <div className="card bg-base-100  shadow-xl">
             <div className="card-body items-center text-center">
