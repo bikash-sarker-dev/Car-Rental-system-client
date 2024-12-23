@@ -1,4 +1,6 @@
+import axios from "axios";
 import React from "react";
+import Swal from "sweetalert2";
 
 const AddCarForm = () => {
   const handleAddCarSubmit = (e) => {
@@ -9,6 +11,19 @@ const AddCarForm = () => {
     carData.features = carData.features.split("\n");
 
     console.log(carData);
+
+    axios.post("http://localhost:5000/car", carData).then((res) => {
+      const { data } = res;
+
+      if (data.insertedId) {
+        Swal.fire({
+          title: "Successfully ",
+          text: "the car rental data submit",
+          icon: "success",
+        });
+      }
+    });
+    e.target.reset();
   };
   return (
     <div>
