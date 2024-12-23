@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { Tooltip } from "react-tooltip";
 import UserIcons from "../../../assets/images//Icons/userIcon.png";
 import Logo from "../../../assets/images/logo/carLogo.png";
 import { useAuth } from "../../../hooks/useAuth";
@@ -63,7 +64,10 @@ const Navbar = () => {
         <div className="navbar-end">
           {user && user?.email ? (
             <div>
-              <div className="avatar">
+              <Tooltip anchorSelect=".my-anchor-element" place="left">
+                {user?.displayName}
+              </Tooltip>
+              <div className="avatar my-anchor-element">
                 <div className="ring-primary ring-offset-base-100 w-12 rounded-full border-2 border-car-primary ">
                   <img src={user?.photoURL} alt="profile picture not support" />
                 </div>

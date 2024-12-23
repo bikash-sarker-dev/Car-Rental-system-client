@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 
 import { RouterProvider } from "react-router-dom";
+import "react-tooltip/dist/react-tooltip.css";
 import AuthProvider from "./authProvider/AuthProvider";
 import router from "./routes/Route";
 
