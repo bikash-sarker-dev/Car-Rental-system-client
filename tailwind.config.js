@@ -6,6 +6,8 @@ export default {
 
     colors: {
       "car-primary": "#e3740e ",
+      "car-secondary": "#b45309 ",
+      "car-white": "#ffffff ",
     },
   },
   plugins: [require("daisyui")],

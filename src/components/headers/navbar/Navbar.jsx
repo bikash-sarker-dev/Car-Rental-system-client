@@ -4,7 +4,7 @@ import Logo from "../../../assets/images/logo/carLogo.png";
 import { useAuth } from "../../../hooks/useAuth";
 
 const Navbar = () => {
-  const { name } = useAuth();
+  const { user } = useAuth();
 
   let Links = (
     <>
@@ -61,9 +61,19 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{Links}</ul>
         </div>
         <div className="navbar-end">
-          <a className="">
-            <img src={UserIcons} alt="" />
-          </a>
+          {user && user?.email ? (
+            <div>
+              <div className="avatar">
+                <div className="ring-primary ring-offset-base-100 w-12 rounded-full border-2 border-car-primary ">
+                  <img src={user?.photoURL} alt="profile picture not support" />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="">
+              <img src={UserIcons} alt="" />
+            </div>
+          )}
         </div>
       </div>
     </div>
