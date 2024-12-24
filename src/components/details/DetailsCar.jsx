@@ -5,7 +5,13 @@ import { useAuth } from "../../hooks/useAuth";
 const DetailsCar = () => {
   const { user } = useAuth();
   const detailsData = useLoaderData();
-  console.log(detailsData);
+  const { _id } = detailsData;
+  delete detailsData._id;
+  const newCarData = {
+    carId: _id,
+    ...detailsData,
+  };
+  console.log(newCarData);
   return (
     <section className="">
       <div

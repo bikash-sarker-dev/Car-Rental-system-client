@@ -24,11 +24,8 @@ const GridCard = ({ car }) => {
             to={`/details/${car?._id}`}
             className="btn btn-sm   btn-outline border-car-primary text-car-primary hover:bg-car-primary hover:text-car-white hover:border-car-primary"
           >
-            Car Details
-          </Link>
-          <button className="btn btn-sm   btn-outline border-car-primary text-car-primary hover:bg-car-primary hover:text-car-white hover:border-car-primary">
             Booking Now
-          </button>
+          </Link>
         </div>
       </div>
     </div>
