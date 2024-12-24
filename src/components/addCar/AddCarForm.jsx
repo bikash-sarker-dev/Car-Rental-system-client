@@ -1,20 +1,30 @@
 import axios from "axios";
-import React from "react";
+import { useState } from "react";
+import DatePicker from "react-datepicker";
 import Swal from "sweetalert2";
+import { useAuth } from "../../hooks/useAuth";
 
 const AddCarForm = () => {
+  const { user } = useAuth();
+  const [startDate, setStartDate] = useState(new Date());
+  let userInfo = {
+    name: user?.displayName,
+    email: user?.email,
+    photoUrl: user?.photoURL,
+  };
+
   const handleAddCarSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const newObject = Object.fromEntries(formData.entries());
     const { ...carData } = newObject;
     carData.features = carData.features.split("\n");
-
-    console.log(carData);
+    carData.bookingCount = 0;
+    carData.author = userInfo;
+    carData.date = startDate;
 
     axios.post("http://localhost:5000/car", carData).then((res) => {
       const { data } = res;
-
       if (data.insertedId) {
         Swal.fire({
           title: "Successfully ",
@@ -55,6 +65,32 @@ const AddCarForm = () => {
                 placeholder="Enter Vehicle Registration Number"
                 className="input input-bordered"
                 required
+              />
+            </div>
+          </div>
+          {/* row 2 */}
+          <div className="flex gap-8">
+            <div className="form-control flex-1">
+              <label className="label">
+                <span className="label-text font-bold">Brand Name</span>
+              </label>
+              <input
+                type="text"
+                name="brand"
+                placeholder="Enter cat brand"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control flex-1">
+              <label className="label">
+                <span className="label-text font-bold">Date</span>
+              </label>
+
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                className="input input-bordered w-full"
               />
             </div>
           </div>

@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import SectionHeadTitle from "../../headers/sectionHead/SectionHeadTitle";
 import CardRecent from "./CardRecent";
 
@@ -9,6 +10,17 @@ let sectionTitleContent = {
 };
 
 const RecentCarList = () => {
+  const [recentCar, setRecentCar] = useState([]);
+
+  useEffect(() => {
+    getRecentData();
+  }, []);
+
+  async function getRecentData() {
+    const { data } = await axios.get("http://localhost:5000/recent-car");
+    setRecentCar(data);
+  }
+
   return (
     <section className="my-32">
       <div className="container">
@@ -17,12 +29,9 @@ const RecentCarList = () => {
           description={sectionTitleContent.description}
         />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <CardRecent />
-          <CardRecent />
-          <CardRecent />
-          <CardRecent />
-          <CardRecent />
-          <CardRecent />
+          {recentCar.map((car) => (
+            <CardRecent key={car._id} car={car} />
+          ))}
         </div>
       </div>
     </section>
