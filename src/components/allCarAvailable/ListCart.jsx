@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ListCart = ({ car }) => {
   return (
@@ -14,11 +15,14 @@ const ListCart = ({ car }) => {
         <p>Registration Number: {car?.registrationNumber}</p>
         <p>Availability: {car?.availability}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-md  btn-outline border-car-primary text-car-primary hover:bg-car-primary hover:text-car-white hover:border-car-primary">
+          <Link
+            to={`/details/${car?._id}`}
+            className="btn btn-md  btn-outline border-car-primary text-car-primary hover:bg-car-primary hover:text-car-white hover:border-car-primary"
+          >
             Car Details
-          </button>
+          </Link>
           <button className="btn btn-md   btn-outline border-car-primary text-car-primary hover:bg-car-primary hover:text-car-white hover:border-car-primary">
-            Car Details
+            Booking Now
           </button>
         </div>
       </div>

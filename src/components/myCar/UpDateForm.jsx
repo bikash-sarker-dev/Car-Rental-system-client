@@ -1,45 +1,46 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
-import Swal from "sweetalert2";
-import { useAuth } from "../../hooks/useAuth";
+import { toast } from "react-toastify";
 
-const AddCarForm = () => {
-  const { user } = useAuth();
+const UpDateForm = ({ upDateId, setIs }) => {
+  const [defaultValue, setDefaultValue] = useState({});
   const [startDate, setStartDate] = useState(new Date());
-  let userInfo = {
-    name: user?.displayName,
-    email: user?.email,
-    photoUrl: user?.photoURL,
-  };
 
-  const handleAddCarSubmit = (e) => {
+  useEffect(() => {
+    async function previousValue() {
+      let { data } = await axios.get(
+        `http://localhost:5000/update/${upDateId}`
+      );
+      setDefaultValue(data);
+    }
+    previousValue();
+  }, [upDateId]);
+
+  const handleUpdateCarSubmit = (e) => {
+    setIs(false);
     e.preventDefault();
     const formData = new FormData(e.target);
     const newObject = Object.fromEntries(formData.entries());
-    const { ...carData } = newObject;
-    carData.features = carData.features.split("\n");
-    carData.bookingCount = 0;
-    carData.author = userInfo;
-    carData.date = startDate;
-    carData.bookingStatus = "";
+    const { ...upData } = newObject;
+    upData.features = upData.features.split(",");
+    upData.bookingCount = 0;
+    upData.date = startDate;
 
-    axios.post("http://localhost:5000/car", carData).then((res) => {
-      const { data } = res;
-      if (data.insertedId) {
-        Swal.fire({
-          title: "Successfully ",
-          text: "the car rental data submit",
-          icon: "success",
-        });
-      }
-    });
-    e.target.reset();
+    console.log(upData);
+    axios
+      .patch(`http://localhost:5000/update/${upDateId}`, upData)
+      .then(({ data }) => {
+        if (data.modifiedCount > 0) {
+          toast.success("Successfully Data Update");
+        }
+        setIs(true);
+      });
   };
   return (
     <div>
       <div className="card bg-base-100 w-full  shrink-0 shadow-2xl">
-        <form onSubmit={handleAddCarSubmit} className="card-body">
+        <form onSubmit={handleUpdateCarSubmit} className="card-body">
           {/* row 1 */}
           <div className="flex gap-8">
             <div className="form-control flex-1">
@@ -49,6 +50,7 @@ const AddCarForm = () => {
               <input
                 type="text"
                 name="carModel"
+                defaultValue={defaultValue?.carModel}
                 placeholder="Enter cat model"
                 className="input input-bordered"
                 required
@@ -63,6 +65,7 @@ const AddCarForm = () => {
               <input
                 type="text"
                 name="registrationNumber"
+                defaultValue={defaultValue?.registrationNumber}
                 placeholder="Enter Vehicle Registration Number"
                 className="input input-bordered"
                 required
@@ -78,6 +81,7 @@ const AddCarForm = () => {
               <input
                 type="text"
                 name="brand"
+                defaultValue={defaultValue?.brand}
                 placeholder="Enter cat brand"
                 className="input input-bordered"
                 required
@@ -104,6 +108,7 @@ const AddCarForm = () => {
               <input
                 type="number"
                 name="price"
+                defaultValue={defaultValue?.price}
                 placeholder="Enter Daily Rental Price<"
                 className="input input-bordered"
                 required
@@ -115,10 +120,9 @@ const AddCarForm = () => {
               </label>
               <select
                 name="availability"
-                defaultValue="select option"
+                defaultValue={defaultValue?.availability}
                 className="select select-bordered w-full "
               >
-                <option disabled>select option</option>
                 <option>YES</option>
                 <option>NO</option>
               </select>
@@ -133,6 +137,7 @@ const AddCarForm = () => {
               <input
                 type="url"
                 name="photo"
+                defaultValue={defaultValue?.photo}
                 placeholder="Enter photo url"
                 className="input input-bordered"
                 required
@@ -145,6 +150,7 @@ const AddCarForm = () => {
               <input
                 type="text"
                 name="location"
+                defaultValue={defaultValue?.location}
                 placeholder="Enter Daily Rental Price<"
                 className="input input-bordered"
                 required
@@ -165,6 +171,7 @@ const AddCarForm = () => {
             <textarea
               placeholder="Write each features in a new line"
               name="features"
+              defaultValue={defaultValue?.features}
               className="textarea textarea-bordered textarea-sm w-full "
             ></textarea>
           </div>
@@ -176,6 +183,7 @@ const AddCarForm = () => {
             <textarea
               name="description"
               placeholder="the car relate description"
+              defaultValue={defaultValue?.description}
               className="textarea textarea-bordered textarea-lg w-full "
             ></textarea>
           </div>
@@ -189,4 +197,4 @@ const AddCarForm = () => {
   );
 };
 
-export default AddCarForm;
+export default UpDateForm;

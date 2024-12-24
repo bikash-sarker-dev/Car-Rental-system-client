@@ -43,19 +43,6 @@ const AllCarAvailable = () => {
           </div>
         </div>
 
-        {/* {gridAndList
-          ? 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                allCar.map((car) => (
-                <GridCard key={car._id} car={car} />
-              </div>
-            ))
-          : allCar.map((car) => (
-              <div>
-                <ListCart key={car._id} car={car} />
-              </div>
-            ))} */}
-
         {gridAndList ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {allCar.map((car) => (
