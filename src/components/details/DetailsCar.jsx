@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useAuth } from "../../hooks/useAuth";
+import PageHead from "../headers/pageHead/PageHead";
 
 const DetailsCar = () => {
   const { user } = useAuth();
@@ -59,20 +60,7 @@ const DetailsCar = () => {
   };
   return (
     <section className="">
-      <div
-        style={{
-          background: `url(https://images.pexels.com/photos/2365572/pexels-photo-2365572.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)`,
-          backgroundColor: "rgba(0,0,0,0.8)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-        className="bg-bottom py-32 bg-blend-overlay text-center "
-      >
-        <h2 className="text-5xl font-bold text-clip text-car-white">
-          Details Review
-        </h2>
-      </div>
+      <PageHead title={"Details Page"} />
       <div className="hero min-h-screen container">
         <div className="flex-col my-20">
           <img

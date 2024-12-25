@@ -1,11 +1,12 @@
 import React from "react";
 import AddCarForm from "../components/addCar/AddCarForm";
+import PageHead from "../components/headers/pageHead/PageHead";
 
 const CarAddPage = () => {
   return (
     <section>
-      <div className="container">
-        <h1>add car</h1>
+      <PageHead title="Add Car Page" />
+      <div className="container ">
         <AddCarForm />
       </div>
     </section>

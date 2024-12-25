@@ -38,7 +38,7 @@ const AddCarForm = () => {
   };
   return (
     <div>
-      <div className="card bg-base-100 w-full  shrink-0 shadow-2xl">
+      <div className="card bg-base-100 w-full  shrink-0 shadow-2xl my-14">
         <form onSubmit={handleAddCarSubmit} className="card-body">
           {/* row 1 */}
           <div className="flex gap-8">
