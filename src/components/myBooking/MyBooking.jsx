@@ -1,11 +1,17 @@
 import axios from "axios";
+import moment from "moment";
 import { useEffect, useState } from "react";
+import DatePicker from "react-datepicker";
 import Swal from "sweetalert2";
 import { useAuth } from "../../hooks/useAuth";
 
 const MyBooking = () => {
   const { user } = useAuth();
   const [booking, setBooking] = useState([]);
+  const [dateId, setDateId] = useState("");
+  const [isUp, setIsUp] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
 
   useEffect(() => {
     async function getBooking() {
@@ -15,9 +21,7 @@ const MyBooking = () => {
       setBooking(data);
     }
     getBooking();
-  }, []);
-
-  console.log(booking);
+  }, [isUp]);
 
   let handleChangeUpdateStatus = (e, id) => {
     console.log(e.target.value, id);
@@ -41,6 +45,7 @@ const MyBooking = () => {
             .patch(`http://localhost:5000/car-booking/${id}`, statusInfo)
             .then(({ data }) => {
               if (data.modifiedCount > 0) {
+                setIsUp(!isUp);
                 Swal.fire({
                   title: "Successfully",
                   text: `Your booking has been changing ( ${statusInfo.status} )`,
@@ -54,13 +59,10 @@ const MyBooking = () => {
       console.log(error);
     }
   };
-
+  let statusInfo = {
+    status: "canceled",
+  };
   const handleCancelBooking = (id) => {
-    console.log(id);
-    let statusInfo = {
-      status: "canceled",
-    };
-
     try {
       Swal.fire({
         title: "Are you sure?",
@@ -77,6 +79,8 @@ const MyBooking = () => {
             .patch(`http://localhost:5000/car-booking/${id}`, statusInfo)
             .then(({ data }) => {
               if (data.modifiedCount > 0) {
+                setIsUp(!isUp);
+                console.log("yes", !isUp);
                 Swal.fire({
                   title: "Canceled!",
                   text: "Your booking has been canceled",
@@ -91,6 +95,50 @@ const MyBooking = () => {
     }
   };
 
+  const handleDateModify = (id) => {
+    setEndDate("");
+    setStartDate("");
+    document.getElementById("dateModal").showModal();
+    setDateId(id);
+  };
+
+  const dateModify = () => {
+    let dateInfo = {
+      startDate,
+      endDate,
+    };
+    try {
+      document.getElementById("dateModal").close();
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be booking date modify",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Cancel",
+        confirmButtonText: "Confirm",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          axios
+            .patch(`http://localhost:5000/booking-date/${dateId}`, dateInfo)
+            .then(({ data }) => {
+              if (data.modifiedCount > 0) {
+                setIsUp(!isUp);
+                console.log("yes", !isUp);
+                Swal.fire({
+                  title: "Successfully!",
+                  text: "Your has been booking date modify",
+                  icon: "success",
+                });
+              }
+            });
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="container">
       <div className="overflow-x-auto">
@@ -126,7 +174,16 @@ const MyBooking = () => {
                 </td>
                 <td>{car?.carModel}</td>
                 <td>${car?.price}</td>
-                <td>{car?.bookingDate}</td>
+                <td className="text-center">
+                  <p>
+                    {moment(car?.bookingStartDate).format("DD-MM-YYYY HH:mm A")}
+                  </p>
+                  <p className=" font-bold">To</p>
+                  <p>
+                    {" "}
+                    {moment(car?.bookingEndDate).format("DD-MM-YYYY HH:mm A")}
+                  </p>
+                </td>
                 <td>
                   <select
                     onChange={(e) => handleChangeUpdateStatus(e, car._id)}
@@ -140,7 +197,10 @@ const MyBooking = () => {
                   </select>
                 </td>
                 <td>
-                  <button className="btn btn-sm bg-car-primary text-car-white hover:text-[#000] text-sm mx-1">
+                  <button
+                    onClick={() => handleDateModify(car._id)}
+                    className="btn btn-sm bg-car-primary text-car-white hover:text-[#000] text-sm mx-1"
+                  >
                     Modify Date
                   </button>
                   <button
@@ -155,6 +215,42 @@ const MyBooking = () => {
           </tbody>
         </table>
       </div>
+      {/* Open the modal using document.getElementById('ID').showModal() method */}
+
+      <dialog id="dateModal" className="modal">
+        <div className="modal-box ">
+          <h3 className="font-bold text-lg text-center my-5">Date Modify</h3>
+          <div className="flex justify-between  h-[300px]">
+            <div>
+              <h3>Star Date</h3>
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                className="input input-bordered w-full max-w-xs"
+              />
+            </div>
+            <div>
+              <h3>End Date</h3>
+              <DatePicker
+                selected={endDate}
+                onChange={(date) => setEndDate(date)}
+                className="input input-bordered w-full max-w-xs"
+              />
+            </div>
+          </div>
+          <div className="modal-action">
+            <button
+              onClick={dateModify}
+              className="btn bg-car-primary text-car-white"
+            >
+              Save Date
+            </button>
+            <form method="dialog">
+              <button className="btn bg-[#dc2626] text-car-white">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 };

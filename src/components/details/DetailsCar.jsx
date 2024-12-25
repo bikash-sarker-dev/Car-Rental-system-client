@@ -1,27 +1,36 @@
 import axios from "axios";
-import moment from "moment";
-import React from "react";
+import { useState } from "react";
+import DatePicker from "react-datepicker";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useAuth } from "../../hooks/useAuth";
 
 const DetailsCar = () => {
   const { user } = useAuth();
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
   const detailsData = useLoaderData();
+
   let { _id: carId } = detailsData;
 
   const newCarData = {
     carId: carId,
     adminName: user?.displayName,
     adminEmail: user?.email,
-    bookingStatus: "pending",
-    bookingDate: moment(new Date()).format("DD-MM-YYYY HH:mm"),
+    bookingStatus: "confirmed",
+    bookingStartDate: startDate,
+    bookingEndDate: endDate,
     ...detailsData,
   };
   delete newCarData._id;
   delete newCarData.bookingCount;
 
   const handleBooking = () => {
+    document.getElementById("dateModal").showModal();
+  };
+
+  const dateModify = () => {
+    document.getElementById("dateModal").close();
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be booking Now!",
@@ -29,7 +38,7 @@ const DetailsCar = () => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, booking Now!",
+      confirmButtonText: "Confirm",
     }).then((result) => {
       if (result.isConfirmed) {
         axios
@@ -37,7 +46,7 @@ const DetailsCar = () => {
           .then(({ data }) => {
             if (data.insertedId) {
               Swal.fire({
-                title: "Confirmation  !",
+                title: "Successfully  !",
                 text: "Your are car booking already completed",
                 icon: "success",
               });
@@ -123,6 +132,42 @@ const DetailsCar = () => {
           </div>
         </div>
       </div>
+      <dialog id="dateModal" className="modal">
+        <div className="modal-box ">
+          <h3 className="font-bold text-lg text-center my-5">
+            Please select Date{" "}
+          </h3>
+          <div className="flex justify-between  h-[300px]">
+            <div>
+              <h3>Star Date</h3>
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                className="input input-bordered w-full max-w-xs"
+              />
+            </div>
+            <div>
+              <h3>End Date</h3>
+              <DatePicker
+                selected={endDate}
+                onChange={(date) => setEndDate(date)}
+                className="input input-bordered w-full max-w-xs"
+              />
+            </div>
+          </div>
+          <div className="modal-action">
+            <button
+              onClick={dateModify}
+              className="btn bg-car-primary text-car-white"
+            >
+              Save Date
+            </button>
+            <form method="dialog">
+              <button className="btn bg-[#dc2626] text-car-white">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </section>
   );
 };
