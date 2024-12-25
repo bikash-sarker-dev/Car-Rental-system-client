@@ -1,17 +1,51 @@
+import axios from "axios";
+import moment from "moment";
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 import { useAuth } from "../../hooks/useAuth";
 
 const DetailsCar = () => {
   const { user } = useAuth();
   const detailsData = useLoaderData();
-  const { _id } = detailsData;
-  delete detailsData._id;
+  let { _id: carId } = detailsData;
+
   const newCarData = {
-    carId: _id,
+    carId: carId,
+    adminName: user?.displayName,
+    adminEmail: user?.email,
+    bookingStatus: "pending",
+    bookingDate: moment(new Date()).format("DD-MM-YYYY HH:mm"),
     ...detailsData,
   };
-  console.log(newCarData);
+  delete newCarData._id;
+  delete newCarData.bookingCount;
+
+  const handleBooking = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be booking Now!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, booking Now!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .post("http://localhost:5000/car-booking", newCarData)
+          .then(({ data }) => {
+            if (data.insertedId) {
+              Swal.fire({
+                title: "Confirmation  !",
+                text: "Your are car booking already completed",
+                icon: "success",
+              });
+            }
+          });
+      }
+    });
+  };
   return (
     <section className="">
       <div
@@ -79,7 +113,10 @@ const DetailsCar = () => {
 
             <p className="py-6 max-w-3xl">{detailsData?.description}</p>
             {user && user?.email && (
-              <button className="btn bg-car-primary hover:bg-car-secondary my-8 px-10">
+              <button
+                onClick={handleBooking}
+                className="btn bg-car-primary hover:bg-car-secondary my-8 px-10"
+              >
                 Booking Now
               </button>
             )}

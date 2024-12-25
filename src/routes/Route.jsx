@@ -5,6 +5,7 @@ import CarAvailablePage from "../pages/CarAvailablePage";
 import CarDetailsPage from "../pages/CarDetailsPage";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
+import MyBookingPage from "../pages/MyBookingPage";
 import MyCarPage from "../pages/MyCarPage";
 import RegisterPage from "../pages/RegisterPage";
 const router = createBrowserRouter([
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: "/my-car",
         element: <MyCarPage />,
+      },
+      {
+        path: "/my-booking",
+        element: <MyBookingPage />,
       },
       {
         path: "/login",
