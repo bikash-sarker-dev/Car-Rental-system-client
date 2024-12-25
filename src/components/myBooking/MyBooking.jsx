@@ -109,6 +109,7 @@ const MyBooking = () => {
     let dateInfo = {
       startDate,
       endDate,
+      accountLogOut,
     };
     try {
       document.getElementById("dateModal").close();

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { MdOutlineEdit } from "react-icons/md";
 import { RiDeleteBinLine } from "react-icons/ri";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useAuth } from "../../hooks/useAuth";
 import UpdateCar from "./UpdateCar";
@@ -87,6 +88,11 @@ const MyCar = () => {
     });
   };
 
+  const addCarLinkFunction = () => {
+    return document.getElementById("on_modal").showModal();
+  };
+  setTimeout(addCarLinkFunction, 5000);
+
   return (
     <div>
       <div className="container">
@@ -117,47 +123,77 @@ const MyCar = () => {
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody>
-              {/* row 1 */}
-              {myCars.map((car, i) => (
-                <tr key={car?._id}>
-                  <td>{i + 1}</td>
-                  <td>
-                    <div className="flex items-center gap-3">
-                      <div className="avatar">
-                        <div className="mask  h-12 w-16">
-                          <img
-                            src={car?.photo}
-                            alt="Avatar Tailwind CSS Component"
-                          />
+            {myCars.length === 0 ? (
+              <>
+                <dialog id="on_modal" className="modal ">
+                  <div className="modal-box text-center py-12">
+                    <h3 className="font-bold text-lg">
+                      If no cars are added !
+                    </h3>
+                    <p className="py-4">
+                      Press the user to add a car with a link to the "Add Car"
+                      button on click.
+                    </p>
+
+                    <div className="modal-action justify-center ">
+                      <Link
+                        to="/carAdd"
+                        className="btn bg-car-primary text-car-white"
+                      >
+                        Add Car
+                      </Link>
+                      <form method="dialog">
+                        <button className="btn bg-[#dc2626] text-car-white">
+                          Close
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </dialog>
+              </>
+            ) : (
+              <tbody>
+                {/* row 1 */}
+                {myCars.map((car, i) => (
+                  <tr key={car?._id}>
+                    <td>{i + 1}</td>
+                    <td>
+                      <div className="flex items-center gap-3">
+                        <div className="avatar">
+                          <div className="mask  h-12 w-16">
+                            <img
+                              src={car?.photo}
+                              alt="Avatar Tailwind CSS Component"
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                  <td>{car?.carModel}</td>
-                  <td>${car?.price} /day</td>
-                  <td>{car?.availability}</td>
-                  <td>{car?.date}</td>
-                  <td>
-                    <button
-                      onClick={() => {
-                        document.getElementById("update_Id").showModal();
-                        handleUpdateData(car?._id);
-                      }}
-                      className="btn bg-car-primary text-car-white hover:text-[#000] text-2xl mx-1"
-                    >
-                      <MdOutlineEdit />
-                    </button>
-                    <button
-                      onClick={() => handleMyCarDelete(car?._id)}
-                      className="btn bg-[#dc2626] text-car-white hover:text-[#000] text-2xl mx-1"
-                    >
-                      <RiDeleteBinLine />
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
+                    </td>
+                    <td>{car?.carModel}</td>
+                    <td>${car?.price} /day</td>
+                    <td>{car?.availability}</td>
+                    <td>{car?.date}</td>
+                    <td>
+                      <button
+                        onClick={() => {
+                          document.getElementById("update_Id").showModal();
+                          handleUpdateData(car?._id);
+                        }}
+                        className="btn bg-car-primary text-car-white hover:text-[#000] text-2xl mx-1"
+                      >
+                        <MdOutlineEdit />
+                      </button>
+                      <button
+                        onClick={() => handleMyCarDelete(car?._id)}
+                        className="btn bg-[#dc2626] text-car-white hover:text-[#000] text-2xl mx-1"
+                      >
+                        <RiDeleteBinLine />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            )}
           </table>
         </div>
       </div>

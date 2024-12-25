@@ -18,7 +18,7 @@ const AddCarForm = () => {
     const formData = new FormData(e.target);
     const newObject = Object.fromEntries(formData.entries());
     const { ...carData } = newObject;
-    carData.features = carData.features.split("\n");
+    carData.features = carData.features.split(",");
     carData.bookingCount = 0;
     carData.author = userInfo;
     carData.date = startDate;
@@ -158,7 +158,7 @@ const AddCarForm = () => {
                 Features{" "}
                 <mark className="text-[12px]">
                   {" "}
-                  ( Write each features in a new line ){" "}
+                  ( Write each features in a comma (,) is must be required ){" "}
                 </mark>
               </span>
             </label>
