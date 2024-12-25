@@ -42,11 +42,12 @@ const MyCar = () => {
       setMyCars(aseOder);
     }
   };
-  console.log(sorting);
+
   useEffect(() => {
     async function getMyCar() {
       let { data } = await axios.get(
-        `http://localhost:5000/car?email=${user?.email}`
+        `http://localhost:5000/car?email=${user?.email}`,
+        { withCredentials: true }
       );
 
       setMyCars(data);

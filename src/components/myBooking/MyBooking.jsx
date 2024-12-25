@@ -16,7 +16,10 @@ const MyBooking = () => {
   useEffect(() => {
     async function getBooking() {
       let { data } = await axios.get(
-        `http://localhost:5000/car-booking?email=${user?.email}`
+        `http://localhost:5000/car-booking?email=${user?.email}`,
+        {
+          withCredentials: true,
+        }
       );
       setBooking(data);
     }

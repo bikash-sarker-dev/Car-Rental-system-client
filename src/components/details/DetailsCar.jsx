@@ -42,7 +42,9 @@ const DetailsCar = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .post("http://localhost:5000/car-booking", newCarData)
+          .post("http://localhost:5000/car-booking", newCarData, {
+            withCredentials: true,
+          })
           .then(({ data }) => {
             if (data.insertedId) {
               Swal.fire({

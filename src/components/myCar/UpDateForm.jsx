@@ -27,15 +27,16 @@ const UpDateForm = ({ upDateId, setIs }) => {
     upData.bookingCount = 0;
     upData.date = startDate;
 
-    console.log(upData);
     axios
-      .patch(`http://localhost:5000/update/${upDateId}`, upData)
+      .put(`http://localhost:5000/update/${upDateId}`, upData)
       .then(({ data }) => {
         if (data.modifiedCount > 0) {
           toast.success("Successfully Data Update");
         }
         setIs(true);
       });
+
+    document.getElementById("update_Id").close();
   };
   return (
     <div>
