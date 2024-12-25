@@ -3,7 +3,7 @@ import MyBooking from "../components/myBooking/MyBooking";
 
 const MyBookingPage = () => {
   return (
-    <div>
+    <div className="my-32">
       <MyBooking />
     </div>
   );
