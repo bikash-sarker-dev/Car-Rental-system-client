@@ -1,11 +1,21 @@
-import React from "react";
+import moment from "moment";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../../../hooks/useAuth";
 
 const TopSubNavbar = () => {
   const { user, accountLogout } = useAuth();
+  const [currentDateTime, setCurrentDateTime] = useState(moment());
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentDateTime(moment());
+    }, 1000);
+
+    return () => clearInterval(interval); // Cleanup interval on component unmount
+  }, []);
 
   const handleLogout = () => {
     accountLogout()
@@ -21,7 +31,12 @@ const TopSubNavbar = () => {
     <div className="bg-car-primary">
       <div className="container">
         <div className="flex justify-between py-3">
-          <div>date</div>
+          <div>
+            <p className="text-car-white font-semibold">
+              <span>Date: {currentDateTime.format("DD-MM-YYYY ")}</span>
+              <span>Time: {currentDateTime.format(" hh:mm:ss A")}</span>
+            </p>
+          </div>
           <div className="space-x-4">
             {user && user?.email ? (
               <button
