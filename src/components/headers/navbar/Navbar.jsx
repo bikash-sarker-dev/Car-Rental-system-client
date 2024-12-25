@@ -15,15 +15,20 @@ const Navbar = () => {
       <li>
         <NavLink to="/car-available">Car Available</NavLink>
       </li>
-      <li>
-        <NavLink to="/carAdd">Add Car </NavLink>
-      </li>
-      <li>
-        <NavLink to="/my-car"> My Car </NavLink>
-      </li>
-      <li>
-        <NavLink to="/my-booking">My Booking</NavLink>
-      </li>
+      {user && user.email && (
+        <>
+          {" "}
+          <li>
+            <NavLink to="/carAdd">Add Car </NavLink>
+          </li>
+          <li>
+            <NavLink to="/my-car"> My Car </NavLink>
+          </li>
+          <li>
+            <NavLink to="/my-booking">My Booking</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (

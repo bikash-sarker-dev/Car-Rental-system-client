@@ -1,11 +1,32 @@
-import React from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-const SearchAndsort = () => {
+const SearchAndsort = ({ setAllCar }) => {
+  const [search, setsearch] = useState("");
+  const handleSearch = (e) => {
+    setsearch(e.target.value);
+  };
+  useEffect(() => {
+    async function getAllData() {
+      let { data } = await axios.get(
+        `http://localhost:5000/search?search=${search}`
+      );
+      setAllCar(data);
+    }
+    getAllData();
+  }, [search]);
+
+  console.log(search);
   return (
     <div className="flex justify-between my-10">
       <div className="w-1/2">
         <label className="input input-bordered max-w-sm flex items-center gap-2">
-          <input type="text" className="grow " placeholder="Search" />
+          <input
+            onChange={handleSearch}
+            type="search"
+            className="grow "
+            placeholder="Search"
+          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 16 16"
