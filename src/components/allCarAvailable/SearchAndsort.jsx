@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const SearchAndsort = ({ setAllCar }) => {
+const SearchAndsort = ({ allCar, setAllCar }) => {
   const [search, setsearch] = useState("");
   const handleSearch = (e) => {
     setsearch(e.target.value);
@@ -16,7 +16,35 @@ const SearchAndsort = ({ setAllCar }) => {
     getAllData();
   }, [search]);
 
-  console.log(search);
+  const handleChangeSorting = (e) => {
+    let order = e.target.value;
+
+    let copyArray = [...allCar];
+    if (order === "asc-date") {
+      let aseOder = copyArray.sort(
+        (a, b) => new Date(a.date) - new Date(b.date)
+      );
+      setAllCar(aseOder);
+    }
+    if (order === "des-date") {
+      let aseOder = copyArray.sort(
+        (a, b) => new Date(b.date) - new Date(a.date)
+      );
+      setAllCar(aseOder);
+    }
+    if (order === "asc-price") {
+      let aseOder = copyArray.sort(
+        (a, b) => parseInt(a.price) - parseInt(b.price)
+      );
+      setAllCar(aseOder);
+    }
+    if (order === "des-price") {
+      let aseOder = copyArray.sort(
+        (a, b) => parseInt(b.price) - parseInt(a.price)
+      );
+      setAllCar(aseOder);
+    }
+  };
   return (
     <div className="flex justify-between my-10">
       <div className="w-1/2">
@@ -43,22 +71,19 @@ const SearchAndsort = ({ setAllCar }) => {
       </div>
       <div className="w-1/2 flex gap-5 justify-end">
         <div>
-          <select className="select select-bordered w-full max-w-xs">
-            <option disabled selected>
-              Who shot first?
-            </option>
-            <option>Han Solo</option>
-            <option>Greedo</option>
-          </select>
-        </div>
-        <div>
-          <select className="select select-bordered w-full max-w-xs">
-            <option disabled selected>
-              Who shot first?
-            </option>
-            <option>Han Solo</option>
-            <option>Greedo</option>
-          </select>
+          <div className="mb-10">
+            <select
+              defaultValue="Car Sorting or filter?"
+              className="select select-bordered w-full max-w-xs"
+              onChange={handleChangeSorting}
+            >
+              <option disabled>Car Sorting or filter?</option>
+              <option value="des-date">Newest First</option>
+              <option value="asc-date">Oldest First</option>
+              <option value="des-price">Highest First</option>
+              <option value="asc-price">Lowest First</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ const GridCard = ({ car }) => {
         <img
           src={car?.photo}
           alt="Shoes"
-          className="transition duration-500 ease-out group-hover:scale-125"
+          className="transition duration-500 ease-out group-hover:scale-125 h-[230px]"
         />
         <span className="absolute right-0 bottom-0 bg-car-primary py-2 px-4 font-semibold text-xl text-base-100 tracking-wider">
           ${car?.price}/day
@@ -18,8 +18,9 @@ const GridCard = ({ car }) => {
         <h2 className="card-title">{car?.carModel}</h2>
         <p>Registration Number: {car?.registrationNumber}</p>
         <p>Availability: {car?.availability}</p>
+        <p>Date: {car?.date ? car?.date : "not found"} </p>
 
-        <div className="card-actions justify-end mt-10 ">
+        <div className="card-actions justify-end  ">
           <Link
             to={`/details/${car?._id}`}
             className="btn btn-sm   btn-outline border-car-primary text-car-primary hover:bg-car-primary hover:text-car-white hover:border-car-primary"

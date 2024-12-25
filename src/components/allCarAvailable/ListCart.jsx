@@ -14,6 +14,8 @@ const ListCart = ({ car }) => {
         <h2 className="card-title">{car?.carModel}</h2>
         <p>Registration Number: {car?.registrationNumber}</p>
         <p>Availability: {car?.availability}</p>
+        <p>price: ${car?.price} /day</p>
+        <p>Date: {car?.date ? car?.date : "not found"} </p>
         <div className="card-actions justify-end">
           <Link
             to={`/details/${car?._id}`}
