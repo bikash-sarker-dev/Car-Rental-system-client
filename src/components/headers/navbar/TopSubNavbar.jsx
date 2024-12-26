@@ -30,14 +30,14 @@ const TopSubNavbar = () => {
   return (
     <div className="bg-car-primary">
       <div className="container">
-        <div className="flex justify-between py-3">
+        <div className="sm:flex justify-between py-3 text-center">
           <div>
             <p className="text-car-white font-semibold">
               <span>Date: {currentDateTime.format("DD-MM-YYYY ")}</span>
               <span>Time: {currentDateTime.format(" hh:mm:ss A")}</span>
             </p>
           </div>
-          <div className="space-x-4">
+          <div className="space-x-4 mt-2 sm:mt-0">
             {user && user?.email ? (
               <button
                 onClick={handleLogout}

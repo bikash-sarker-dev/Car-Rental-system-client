@@ -46,8 +46,8 @@ const UpDateForm = ({ upDateId, setIs }) => {
       <div className="card bg-base-100 w-full  shrink-0 shadow-2xl">
         <form onSubmit={handleUpdateCarSubmit} className="card-body">
           {/* row 1 */}
-          <div className="flex gap-8">
-            <div className="form-control flex-1">
+          <div className="sm:flex gap-8">
+            <div className="form-control sm:flex-1">
               <label className="label">
                 <span className="label-text font-bold">Car Model</span>
               </label>
@@ -60,7 +60,7 @@ const UpDateForm = ({ upDateId, setIs }) => {
                 required
               />
             </div>
-            <div className="form-control flex-1">
+            <div className="form-control sm:flex-1">
               <label className="label">
                 <span className="label-text font-bold">
                   Vehicle Registration Number
@@ -77,8 +77,8 @@ const UpDateForm = ({ upDateId, setIs }) => {
             </div>
           </div>
           {/* row 2 */}
-          <div className="flex gap-8">
-            <div className="form-control flex-1">
+          <div className="sm:flex gap-8">
+            <div className="form-control sm:flex-1">
               <label className="label">
                 <span className="label-text font-bold">Brand Name</span>
               </label>
@@ -91,7 +91,7 @@ const UpDateForm = ({ upDateId, setIs }) => {
                 required
               />
             </div>
-            <div className="form-control flex-1">
+            <div className="form-control sm:flex-1">
               <label className="label">
                 <span className="label-text font-bold">Date</span>
               </label>
@@ -104,8 +104,8 @@ const UpDateForm = ({ upDateId, setIs }) => {
             </div>
           </div>
           {/* row 2 */}
-          <div className="flex gap-8">
-            <div className="form-control flex-1">
+          <div className="sm:flex gap-8">
+            <div className="form-control sm:flex-1">
               <label className="label">
                 <span className="label-text font-bold">Daily Rental Price</span>
               </label>
@@ -118,7 +118,7 @@ const UpDateForm = ({ upDateId, setIs }) => {
                 required
               />
             </div>
-            <div className="form-control flex-1">
+            <div className="form-control sm:flex-1">
               <label className="label">
                 <span className="label-text font-bold">Availability</span>
               </label>
@@ -133,8 +133,8 @@ const UpDateForm = ({ upDateId, setIs }) => {
             </div>
           </div>
           {/* row 3 */}
-          <div className="flex gap-8">
-            <div className="form-control flex-1">
+          <div className="sm:flex gap-8">
+            <div className="form-control sm:flex-1">
               <label className="label">
                 <span className="label-text font-bold">Photo url</span>
               </label>
@@ -147,7 +147,7 @@ const UpDateForm = ({ upDateId, setIs }) => {
                 required
               />
             </div>
-            <div className="form-control flex-1">
+            <div className="form-control sm:flex-1">
               <label className="label">
                 <span className="label-text font-bold">Location</span>
               </label>
@@ -162,7 +162,7 @@ const UpDateForm = ({ upDateId, setIs }) => {
             </div>
           </div>
           {/* row 4 */}
-          <div className="form-control flex-1">
+          <div className="form-control sm:flex-1">
             <label className="label">
               <span className="label-text font-bold">
                 Features{" "}
@@ -180,7 +180,7 @@ const UpDateForm = ({ upDateId, setIs }) => {
             ></textarea>
           </div>
           {/* row 5 */}
-          <div className="form-control flex-1">
+          <div className="form-control sm:flex-1">
             <label className="label">
               <span className="label-text font-bold">Description</span>
             </label>
@@ -193,7 +193,7 @@ const UpDateForm = ({ upDateId, setIs }) => {
           </div>
 
           <div className="form-control mt-6">
-            <button className="btn btn-primary">Save</button>
+            <button className="btn bg-car-primary">Update Car</button>
           </div>
         </form>
       </div>

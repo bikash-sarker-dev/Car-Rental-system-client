@@ -3,6 +3,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 
+import "aos/dist/aos.css";
 import { HelmetProvider } from "react-helmet-async";
 import { RouterProvider } from "react-router-dom";
 import "react-tooltip/dist/react-tooltip.css";

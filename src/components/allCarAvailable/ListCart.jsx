@@ -3,12 +3,18 @@ import { Link } from "react-router-dom";
 
 const ListCart = ({ car }) => {
   return (
-    <div className="card mb-5 card-side flex items-center   rounded-none border border-base-300 bg-base-100 shadow-xl ">
-      <div>
-        <figure>
-          <img src={car?.photo} alt="Movie" className="w-96 h-60" />
-        </figure>
-      </div>
+    <div
+      data-aos="fade-up"
+      data-aos-duration="2000"
+      className="card mb-5 md:card-side sm:flex items-center   rounded-none border border-base-300 bg-base-100 shadow-xl "
+    >
+      <figure>
+        <img
+          src={car?.photo}
+          alt="Movie"
+          className="sm:w-96 sm:h-60 p-4 sm:pl-4"
+        />
+      </figure>
 
       <div className="card-body">
         <h2 className="card-title">{car?.carModel}</h2>

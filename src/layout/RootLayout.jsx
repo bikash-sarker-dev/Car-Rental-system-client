@@ -1,4 +1,5 @@
-import React from "react";
+import AOS from "aos";
+import React, { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Footer from "../components/footer/Footer";
@@ -8,6 +9,9 @@ import LoadingPage from "../pages/LoadingPage";
 
 const RootLayout = () => {
   const { loading } = useAuth();
+  useEffect(() => {
+    AOS.init();
+  }, []);
   if (loading) {
     return <LoadingPage />;
   }

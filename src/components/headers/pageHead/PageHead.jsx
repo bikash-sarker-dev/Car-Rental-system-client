@@ -12,7 +12,13 @@ const PageHead = ({ title }) => {
       }}
       className="bg-bottom py-32 bg-blend-overlay text-center "
     >
-      <h2 className="text-5xl font-bold text-clip text-car-white">{title}</h2>
+      <h2
+        data-aos="fade-up"
+        data-aos-duration="2000"
+        className="text-5xl font-bold text-clip text-car-white"
+      >
+        {title}
+      </h2>
     </div>
   );
 };

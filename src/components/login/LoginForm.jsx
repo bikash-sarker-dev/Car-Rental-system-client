@@ -37,11 +37,11 @@ const LoginForm = () => {
   return (
     <section className="my-24">
       <div className="container">
-        <div className="  flex gap-5 items-center ">
-          <div className="w-1/2">
+        <div className="  md:flex gap-5 items-center ">
+          <div className="md:w-1/2">
             <Lottie animationData={loginLottieData} loop={true} />
           </div>
-          <div className=" w-1/2 shadow-xl ">
+          <div className=" md:w-1/2 shadow-xl ">
             <div className="mt-10">
               <FormHeading title="Log In to your Account" />
             </div>

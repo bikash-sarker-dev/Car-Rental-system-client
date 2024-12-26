@@ -4,19 +4,24 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <div
-      className="hero min-h-[750px] bg-right  "
+      className="hero md:min-h-[750px] bg-right  "
       style={{
         backgroundImage:
           "url(https://images.pexels.com/photos/261985/pexels-photo-261985.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
       }}
     >
-      <div className="hero-overlay bg-opacity-60"></div>
+      <div className="hero-overlay bg-opacity-60 "></div>
       <div className="hero-content text-neutral-content justify-start items-start w-full">
-        <div className="max-w-2xl">
+        <div
+          data-aos="fade-down"
+          data-aos-easing="linear"
+          data-aos-duration="1500"
+          className="max-w-2xl text-center md:text-left py-24"
+        >
           <h3 className="uppercase tracking-[3px]  font-semibold text-xl">
             buy or Sell your vehicles
           </h3>
-          <h1 className="mb-5 text-7xl font-extrabold leading-[90px] my-6 tracking-[3px]">
+          <h1 className="mb-5 text-5xl  md:text-7xl font-extrabold leading-[60px] md:leading-[90px] my-6 tracking-[3px]">
             Drive Your Dreams Today!
           </h1>
 

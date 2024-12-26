@@ -65,7 +65,11 @@ const DetailsCar = () => {
   return (
     <section className="">
       <PageHead title={"Details Page"} />
-      <div className="hero min-h-screen container">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="2000"
+        className="hero min-h-screen container"
+      >
         <div className="flex-col my-20">
           <img
             src={detailsData?.photo}

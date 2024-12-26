@@ -8,19 +8,27 @@ const Offers = () => {
     <div>
       <SectionHeadTitle title="Special Offers"></SectionHeadTitle>
       <div className="container ">
-        <div className="md:flex gap-6 mb-32">
-          <div className="w-1/2">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="2000"
+          className="md:flex gap-6 mb-32"
+        >
+          <div className="md:w-1/2 mb-5 ">
             <img className="w-full" src={offer1} alt="" />
             <div className="flex mt-3">
-              <button className="btn bg-car-primary w-1/2">Learn More</button>
-              <button className="btn bg-car-primary  w-1/2">Booking</button>
+              <button className="btn bg-car-primary  md:w-1/2">
+                Learn More
+              </button>
+              <button className="btn bg-car-primary  md:w-1/2">Booking</button>
             </div>
           </div>
-          <div className="w-1/2">
+          <div className="md:w-1/2">
             <img src={offer2} alt="" />
             <div className="flex mt-3 ">
-              <button className="btn bg-car-primary w-1/2">Learn More</button>
-              <button className="btn bg-car-primary w-1/2">Booking</button>
+              <button className="btn bg-car-primary md:w-1/2">
+                Learn More
+              </button>
+              <button className="btn bg-car-primary md:w-1/2">Booking</button>
             </div>
           </div>
         </div>

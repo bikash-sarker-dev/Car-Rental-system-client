@@ -46,8 +46,8 @@ const SearchAndsort = ({ allCar, setAllCar }) => {
     }
   };
   return (
-    <div className="flex justify-between my-10">
-      <div className="w-1/2">
+    <div className=" sm:flex justify-between mt-10">
+      <div className=" sm:w-1/2">
         <label className="input input-bordered max-w-sm flex items-center gap-2">
           <input
             onChange={handleSearch}
@@ -69,12 +69,12 @@ const SearchAndsort = ({ allCar, setAllCar }) => {
           </svg>
         </label>
       </div>
-      <div className="w-1/2 flex gap-5 justify-end">
+      <div className=" sm:w-1/2 md:flex mt-3 md:mt-0 gap-5 justify-end">
         <div>
-          <div className="mb-10">
+          <div className="mb-10 w-full">
             <select
               defaultValue="Car Sorting or filter?"
-              className="select select-bordered w-full max-w-xs"
+              className="select select-bordered w-full "
               onChange={handleChangeSorting}
             >
               <option disabled>Car Sorting or filter?</option>

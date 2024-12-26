@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 
 const CardRecent = ({ car }) => {
   return (
-    <div className="card group bg-base-100 transition duration-200  rounded-none hover:shadow-xl border border-neutral-200">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="2000"
+      className="card group bg-base-100 transition duration-200  rounded-none hover:shadow-xl border border-neutral-200"
+    >
       <figure className="relative">
         <img
           src={car?.photo}

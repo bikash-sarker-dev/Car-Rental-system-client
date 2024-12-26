@@ -2,7 +2,11 @@ import React from "react";
 
 const CardTestimonials = () => {
   return (
-    <div className="card card-compact bg-base-100 rounded-none p-4  shadow-xl">
+    <div
+      data-aos="fade-up"
+      data-aos-duration="2000"
+      className="card card-compact bg-base-100 rounded-none p-4  shadow-xl"
+    >
       <div className="card-body">
         <h2 className="card-title">Super Convenient</h2>
         <p>

@@ -7,7 +7,9 @@ const RegisterPage = () => {
   return (
     <div>
       <TapHead title="Car | Register" />
-      <FormHeading title="Get started with easily register" />
+      <div className="mt-24">
+        <FormHeading title="Get started with easily register" />
+      </div>
       <RegisterForm />
     </div>
   );

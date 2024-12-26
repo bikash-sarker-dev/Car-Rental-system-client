@@ -9,7 +9,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import UpdateCar from "./UpdateCar";
 
 const MyCar = () => {
-  const { user } = useAuth();
+  const { user, setLoading } = useAuth();
   const axiosInstance = useAxiosSecure();
   const [myCars, setMyCars] = useState([]);
   const [sorting, setSorting] = useState("");
@@ -47,18 +47,9 @@ const MyCar = () => {
   };
 
   useEffect(() => {
-    // async function getMyCar() {
-    //   let { data } = await axios.get(
-    //     `https://car-rental-server-sage.vercel.app/car?email=${user?.email}`,
-    //     { withCredentials: true }
-    //   );
-
-    //   setMyCars(data);
-    // }
-    // getMyCar();
-    axiosInstance
-      .get(`/car?email=${user?.email}`)
-      .then((res) => setMyCars(res.data));
+    axiosInstance.get(`/car?email=${user?.email}`).then((res) => {
+      setMyCars(res.data);
+    });
   }, [user?.email, is, upDateId]);
 
   const handleUpdateData = (id) => {
@@ -120,7 +111,7 @@ const MyCar = () => {
           <table className="table">
             {/* head */}
             <thead>
-              <tr className="bg-car-secondary text-car-white font-bold text-[15px]">
+              <tr className="bg-car-secondary hidden sm:block text-car-white font-bold text-[15px]">
                 <th>ON</th>
                 <th>Car Image</th>
                 <th>Car Model</th>
@@ -162,12 +153,17 @@ const MyCar = () => {
               <tbody>
                 {/* row 1 */}
                 {myCars.map((car, i) => (
-                  <tr key={car?._id}>
+                  <tr
+                    data-aos="fade-up"
+                    data-aos-duration="2000"
+                    className=" flex sm:flex-none  flex-col sm:flex-row bg-neutral-100 my-5 sm:bg-car-white"
+                    key={car?._id}
+                  >
                     <td>{i + 1}</td>
                     <td>
                       <div className="flex items-center gap-3">
                         <div className="avatar">
-                          <div className="mask  h-12 w-16">
+                          <div className="mask  sm:h-12 sm:w-16 h-52 w-80">
                             <img
                               src={car?.photo}
                               alt="Avatar Tailwind CSS Component"
@@ -176,10 +172,28 @@ const MyCar = () => {
                         </div>
                       </div>
                     </td>
-                    <td>{car?.carModel}</td>
-                    <td>${car?.price} /day</td>
-                    <td>{car?.availability}</td>
-                    <td>{car?.date}</td>
+                    <td>
+                      <strong className="sm:hidden"> Car Modal: </strong>{" "}
+                      {car?.carModel}
+                    </td>
+                    <td>
+                      {" "}
+                      <strong className="sm:hidden"> Price: </strong> $
+                      {car?.price ? `${car?.price} /day` : "not fond"}
+                    </td>
+                    <td>
+                      {" "}
+                      <strong className="sm:hidden">
+                        {" "}
+                        Availability:{" "}
+                      </strong>{" "}
+                      {car?.availability}
+                    </td>
+                    <td>
+                      {" "}
+                      <strong className="sm:hidden"> Date: </strong>{" "}
+                      {car?.date ? car?.date : "not Available"}
+                    </td>
                     <td>
                       <button
                         onClick={() => {

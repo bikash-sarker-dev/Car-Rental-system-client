@@ -1,6 +1,7 @@
 import React from "react";
 import "swiper/css";
 import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SectionHeadTitle from "../../headers/sectionHead/SectionHeadTitle";
 import CardTestimonials from "./CardTestimonials";
@@ -19,10 +20,28 @@ const Testimonials = () => {
         <SectionHeadTitle title="Testimonials" color={true} />
 
         <Swiper
+          className="mySwiper"
           spaceBetween={50}
           slidesPerView={3}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
+          breakpoints={{
+            "@0.00": {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            "@0.75": {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            "@1.00": {
+              slidesPerView: 2,
+              spaceBetween: 40,
+            },
+            "@1.50": {
+              slidesPerView: 3,
+              spaceBetween: 50,
+            },
+          }}
+          modules={[Pagination]}
         >
           <SwiperSlide>
             <CardTestimonials />

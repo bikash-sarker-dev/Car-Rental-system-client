@@ -21,10 +21,10 @@ const AllCarAvailable = () => {
   }, []);
 
   return (
-    <div>
+    <div className="mb-24">
       <div className="container">
         <SearchAndsort setAllCar={setAllCar} allCar={allCar} />
-        <div className="flex justify-between my-10">
+        <div className="flex justify-between mb-10">
           <h2 className="text-xl font-bold">{gridAndList ? "Grid" : "List"}</h2>
           <div>
             {gridAndList ? (

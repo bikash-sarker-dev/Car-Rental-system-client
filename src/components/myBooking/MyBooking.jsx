@@ -16,19 +16,9 @@ const MyBooking = () => {
   const [endDate, setEndDate] = useState(new Date());
 
   useEffect(() => {
-    // async function getBooking() {
-    //   let { data } = await axios.get(
-    //     `https://car-rental-server-sage.vercel.app/car-booking?email=${user?.email}`,
-    //     {
-    //       withCredentials: true,
-    //     }
-    //   );
-    //   setBooking(data);
-    // }
-    // getBooking();
     axiosInstance
       .get(`/car-booking?email=${user?.email}`)
-      .then((res) => setMyCars(res.data));
+      .then((res) => setBooking(res.data));
   }, [isUp, user?.email]);
 
   let handleChangeUpdateStatus = (e, id) => {
@@ -159,11 +149,11 @@ const MyBooking = () => {
   };
   return (
     <div className="container">
-      <div className="overflow-x-auto">
-        <table className="table">
+      <div className="overflow-x-auto mb-24 table-modify">
+        <table className="table  ">
           {/* head */}
           <thead>
-            <tr className="bg-car-secondary text-car-white font-bold text-[15px]">
+            <tr className="bg-car-secondary hidden sm:block text-car-white font-bold text-[15px]">
               <th>ON</th>
               <th>Car Image</th>
               <th>Car Model</th>
@@ -176,9 +166,18 @@ const MyBooking = () => {
           <tbody>
             {/* row 1 */}
             {booking.map((car, i) => (
-              <tr key={car?._id} className="hover">
-                <td>{i + 1}</td>
-                <td>
+              <tr
+                data-aos="fade-up"
+                data-aos-duration="2000"
+                key={car?._id}
+                className="hover flex sm:flex-none  flex-col sm:flex-row bg-neutral-100 my-5 sm:bg-car-white"
+              >
+                <td className="flex sm:flex-none justify-between items-center ">
+                  <p className="sm:hidden font-bold">NO</p>
+                  <p>{i + 1}</p>
+                </td>
+                <td className="flex sm:flex-none justify-between items-center ">
+                  <p className="sm:hidden font-bold">Car Image</p>
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask  h-12 w-16">
@@ -190,19 +189,35 @@ const MyBooking = () => {
                     </div>
                   </div>
                 </td>
-                <td>{car?.carModel}</td>
-                <td>${car?.price}</td>
-                <td className="text-center">
-                  <p>
-                    {moment(car?.bookingStartDate).format("DD-MM-YYYY HH:mm A")}
-                  </p>
-                  <p className=" font-bold">To</p>
-                  <p>
-                    {" "}
-                    {moment(car?.bookingEndDate).format("DD-MM-YYYY HH:mm A")}
-                  </p>
+                <td className="flex sm:flex-none justify-between items-center ">
+                  <p className="sm:hidden font-bold">Car Model</p>
+                  <p>{car?.carModel}</p>
                 </td>
-                <td>
+                <td className="flex sm:flex-none justify-between items-center ">
+                  <p className="sm:hidden font-bold">Daily Rental Price</p>
+                  <p>${car?.price}</p>
+                </td>
+                <td className="flex sm:flex-none justify-between items-center ">
+                  <p className="sm:hidden font-bold">Availability</p>
+                  <p>{i + 1}</p>
+                </td>
+                <td className="flex sm:flex-none justify-between items-center sm:text-center ">
+                  <p className="sm:hidden font-bold">Date</p>
+                  <div>
+                    <p>
+                      {moment(car?.bookingStartDate).format(
+                        "DD-MM-YYYY HH:mm A"
+                      )}
+                    </p>
+                    <p className=" font-bold">To</p>
+                    <p>
+                      {" "}
+                      {moment(car?.bookingEndDate).format("DD-MM-YYYY HH:mm A")}
+                    </p>
+                  </div>
+                </td>
+                <td className="flex sm:flex-none justify-between items-center ">
+                  <p className="sm:hidden font-bold">Booking status</p>
                   <select
                     onChange={(e) => handleChangeUpdateStatus(e, car._id)}
                     defaultValue={car?.bookingStatus || "Change status"}
@@ -214,19 +229,22 @@ const MyBooking = () => {
                     <option>canceled</option>
                   </select>
                 </td>
-                <td>
-                  <button
-                    onClick={() => handleDateModify(car._id)}
-                    className="btn btn-sm bg-car-primary text-car-white hover:text-[#000] text-sm mx-1"
-                  >
-                    Modify Date
-                  </button>
-                  <button
-                    onClick={() => handleCancelBooking(car?._id)}
-                    className="btn btn-sm bg-[#dc2626] text-car-white hover:text-[#000] text-sm mx-1"
-                  >
-                    Cancel
-                  </button>
+                <td className="flex sm:flex-none justify-between items-center ">
+                  <p className="sm:hidden font-bold">Action</p>
+                  <div>
+                    <button
+                      onClick={() => handleDateModify(car._id)}
+                      className="btn btn-sm bg-car-primary text-car-white hover:text-[#000] text-sm mx-1"
+                    >
+                      Modify Date
+                    </button>
+                    <button
+                      onClick={() => handleCancelBooking(car?._id)}
+                      className="btn btn-sm bg-[#dc2626] text-car-white hover:text-[#000] text-sm mx-1"
+                    >
+                      Cancel
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}

@@ -61,11 +61,11 @@ const RegisterForm = () => {
   return (
     <section className="my-32">
       <div className="container">
-        <div className="flex gap-5">
-          <div className="w-1/2">
+        <div className="md:flex gap-5">
+          <div className="md:w-1/2">
             <Lottie animationData={registerLottieFile} loop={true} />
           </div>
-          <div className="w-1/2">
+          <div className="md:w-1/2">
             <div className="card bg-base-100 w-full dark:bg-slate-600 shrink-0 shadow-2xl  mx-auto ">
               <form
                 onSubmit={handleRegisterSubmit}

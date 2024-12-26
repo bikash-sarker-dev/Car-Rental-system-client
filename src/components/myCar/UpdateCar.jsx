@@ -10,7 +10,7 @@ const UpdateCar = ({ upDateId, setIs }) => {
             <UpDateForm upDateId={upDateId} setIs={setIs} />
             <button
               onClick={() => document.getElementById("update_Id").close()}
-              className="btn"
+              className="btn w-full my-8 bg-[#dc2626] px-10"
             >
               Close
             </button>

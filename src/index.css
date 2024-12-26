@@ -28,9 +28,9 @@ body {
   z-index: 999;
   border-bottom: 1px solid #ccc;
 }
-.sticky a {
+/* .sticky a {
   color: #ffffff;
-}
+} */
 .sticky .dark-extra-color {
   color: #ffffff;
 }
@@ -44,4 +44,16 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.table-modify td {
+  width: 160px;
+}
+
+.table-modify td:first-child {
+  width: auto;
+}
+
+.table-modify th {
+  width: 210px;
 }
