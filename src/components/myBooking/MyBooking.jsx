@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import Swal from "sweetalert2";
 import { useAuth } from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const MyBooking = () => {
   const { user } = useAuth();
+  const axiosInstance = useAxiosSecure();
   const [booking, setBooking] = useState([]);
   const [dateId, setDateId] = useState("");
   const [isUp, setIsUp] = useState(false);
@@ -14,17 +16,20 @@ const MyBooking = () => {
   const [endDate, setEndDate] = useState(new Date());
 
   useEffect(() => {
-    async function getBooking() {
-      let { data } = await axios.get(
-        `http://localhost:5000/car-booking?email=${user?.email}`,
-        {
-          withCredentials: true,
-        }
-      );
-      setBooking(data);
-    }
-    getBooking();
-  }, [isUp]);
+    // async function getBooking() {
+    //   let { data } = await axios.get(
+    //     `https://car-rental-server-sage.vercel.app/car-booking?email=${user?.email}`,
+    //     {
+    //       withCredentials: true,
+    //     }
+    //   );
+    //   setBooking(data);
+    // }
+    // getBooking();
+    axiosInstance
+      .get(`/car-booking?email=${user?.email}`)
+      .then((res) => setMyCars(res.data));
+  }, [isUp, user?.email]);
 
   let handleChangeUpdateStatus = (e, id) => {
     console.log(e.target.value, id);
@@ -45,7 +50,10 @@ const MyBooking = () => {
       }).then((result) => {
         if (result.isConfirmed) {
           axios
-            .patch(`http://localhost:5000/car-booking/${id}`, statusInfo)
+            .patch(
+              `https://car-rental-server-sage.vercel.app/car-booking/${id}`,
+              statusInfo
+            )
             .then(({ data }) => {
               if (data.modifiedCount > 0) {
                 setIsUp(!isUp);
@@ -79,7 +87,10 @@ const MyBooking = () => {
       }).then((result) => {
         if (result.isConfirmed) {
           axios
-            .patch(`http://localhost:5000/car-booking/${id}`, statusInfo)
+            .patch(
+              `https://car-rental-server-sage.vercel.app/car-booking/${id}`,
+              statusInfo
+            )
             .then(({ data }) => {
               if (data.modifiedCount > 0) {
                 setIsUp(!isUp);
@@ -125,7 +136,10 @@ const MyBooking = () => {
       }).then((result) => {
         if (result.isConfirmed) {
           axios
-            .patch(`http://localhost:5000/booking-date/${dateId}`, dateInfo)
+            .patch(
+              `https://car-rental-server-sage.vercel.app/booking-date/${dateId}`,
+              dateInfo
+            )
             .then(({ data }) => {
               if (data.modifiedCount > 0) {
                 setIsUp(!isUp);

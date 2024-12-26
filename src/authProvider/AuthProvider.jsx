@@ -24,29 +24,32 @@ const AuthProvider = ({ children }) => {
   };
 
   const accountLogout = () => {
-    setLoading(true);
     return signOut(auth);
   };
   console.log(user);
   useEffect(() => {
-    let unSubscribe = onAuthStateChanged(auth, async (user) => {
-      if (user?.email) {
-        setUser(user);
-        const { data } = await axios.post(
-          `http://localhost:5000/jwt`,
-          {
-            email: user?.email,
-          },
-          { withCredentials: true }
-        );
+    let unSubscribe = onAuthStateChanged(auth, async (CurrentUser) => {
+      setUser(CurrentUser);
+      if (CurrentUser?.email) {
+        const user = { email: CurrentUser?.email };
+        await axios
+          .post(`https://car-rental-server-sage.vercel.app/jwt`, user, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log("login", res.data);
+            setLoading(false);
+          });
       } else {
-        setUser(user);
-        const { data } = await axios.get(`http://localhost:5000/logout`, {
-          withCredentials: true,
-        });
+        await axios
+          .post(`https://car-rental-server-sage.vercel.app/logout`, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log("logout", res.data);
+            setLoading(false);
+          });
       }
-
-      setLoading(false);
     });
 
     return () => {

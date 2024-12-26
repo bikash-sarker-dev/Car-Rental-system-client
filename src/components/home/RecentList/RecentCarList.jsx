@@ -17,7 +17,9 @@ const RecentCarList = () => {
   }, []);
 
   async function getRecentData() {
-    const { data } = await axios.get("http://localhost:5000/recent-car");
+    const { data } = await axios.get(
+      "https://car-rental-server-sage.vercel.app/recent-car"
+    );
     setRecentCar(data);
   }
 

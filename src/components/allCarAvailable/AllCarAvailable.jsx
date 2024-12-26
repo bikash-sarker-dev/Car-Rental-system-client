@@ -12,7 +12,9 @@ const AllCarAvailable = () => {
 
   useEffect(() => {
     async function getAllData() {
-      let { data } = await axios.get("http://localhost:5000/car");
+      let { data } = await axios.get(
+        "https://car-rental-server-sage.vercel.app/car"
+      );
       setAllCar(data);
     }
     getAllData();

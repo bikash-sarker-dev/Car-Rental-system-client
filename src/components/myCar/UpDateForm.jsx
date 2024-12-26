@@ -10,7 +10,7 @@ const UpDateForm = ({ upDateId, setIs }) => {
   useEffect(() => {
     async function previousValue() {
       let { data } = await axios.get(
-        `http://localhost:5000/update/${upDateId}`
+        `https://car-rental-server-sage.vercel.app/update/${upDateId}`
       );
       setDefaultValue(data);
     }
@@ -28,7 +28,10 @@ const UpDateForm = ({ upDateId, setIs }) => {
     upData.date = startDate;
 
     axios
-      .put(`http://localhost:5000/update/${upDateId}`, upData)
+      .put(
+        `https://car-rental-server-sage.vercel.app/update/${upDateId}`,
+        upData
+      )
       .then(({ data }) => {
         if (data.modifiedCount > 0) {
           toast.success("Successfully Data Update");

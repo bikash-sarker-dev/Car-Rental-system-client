@@ -40,7 +40,9 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         element: <CarDetailsPage />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/car-details/${params.id}`),
+          fetch(
+            `https://car-rental-server-sage.vercel.app/car-details/${params.id}`
+          ),
       },
       {
         path: "/my-car",

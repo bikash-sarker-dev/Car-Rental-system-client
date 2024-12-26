@@ -9,7 +9,7 @@ const SearchAndsort = ({ allCar, setAllCar }) => {
   useEffect(() => {
     async function getAllData() {
       let { data } = await axios.get(
-        `http://localhost:5000/search?search=${search}`
+        `https://car-rental-server-sage.vercel.app/search?search=${search}`
       );
       setAllCar(data);
     }

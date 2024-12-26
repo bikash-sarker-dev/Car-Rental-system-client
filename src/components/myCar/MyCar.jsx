@@ -5,10 +5,12 @@ import { RiDeleteBinLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useAuth } from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 import UpdateCar from "./UpdateCar";
 
 const MyCar = () => {
   const { user } = useAuth();
+  const axiosInstance = useAxiosSecure();
   const [myCars, setMyCars] = useState([]);
   const [sorting, setSorting] = useState("");
   const [upDateId, setUpDateId] = useState("");
@@ -45,15 +47,18 @@ const MyCar = () => {
   };
 
   useEffect(() => {
-    async function getMyCar() {
-      let { data } = await axios.get(
-        `http://localhost:5000/car?email=${user?.email}`,
-        { withCredentials: true }
-      );
+    // async function getMyCar() {
+    //   let { data } = await axios.get(
+    //     `https://car-rental-server-sage.vercel.app/car?email=${user?.email}`,
+    //     { withCredentials: true }
+    //   );
 
-      setMyCars(data);
-    }
-    getMyCar();
+    //   setMyCars(data);
+    // }
+    // getMyCar();
+    axiosInstance
+      .get(`/car?email=${user?.email}`)
+      .then((res) => setMyCars(res.data));
   }, [user?.email, is, upDateId]);
 
   const handleUpdateData = (id) => {
@@ -73,7 +78,9 @@ const MyCar = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/delete/${deleteId}`)
+          .delete(
+            `https://car-rental-server-sage.vercel.app/delete/${deleteId}`
+          )
           .then(({ data }) => {
             if (data.deletedCount > 0) {
               Swal.fire({

@@ -24,16 +24,18 @@ const AddCarForm = () => {
     carData.date = startDate;
     carData.bookingStatus = "";
 
-    axios.post("http://localhost:5000/car", carData).then((res) => {
-      const { data } = res;
-      if (data.insertedId) {
-        Swal.fire({
-          title: "Successfully ",
-          text: "the car rental data submit",
-          icon: "success",
-        });
-      }
-    });
+    axios
+      .post("https://car-rental-server-sage.vercel.app/car", carData)
+      .then((res) => {
+        const { data } = res;
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Successfully ",
+            text: "the car rental data submit",
+            icon: "success",
+          });
+        }
+      });
     e.target.reset();
   };
   return (
@@ -95,6 +97,7 @@ const AddCarForm = () => {
               />
             </div>
           </div>
+
           {/* row 2 */}
           <div className="flex gap-8">
             <div className="form-control flex-1">

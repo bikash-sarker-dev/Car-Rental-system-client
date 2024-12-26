@@ -1,4 +1,5 @@
-import React from "react";
+import moment from "moment";
+import { Link } from "react-router-dom";
 
 const CardRecent = ({ car }) => {
   return (
@@ -20,8 +21,15 @@ const CardRecent = ({ car }) => {
         </h2>
         <p>Registration Number: {car?.registrationNumber}</p>
         <p>Availability: {car?.availability}</p>
+        <p>Date Posted: {moment(car?.date).startOf("day").fromNow()}</p>
+
         <div className="card-actions justify-end">
-          <div className="badge badge-outline"> Car Details</div>
+          <Link
+            to={`/details/${car?._id}`}
+            className="btn btn-sm   btn-outline border-car-primary text-car-primary hover:bg-car-primary hover:text-car-white hover:border-car-primary"
+          >
+            Booking Now
+          </Link>
         </div>
       </div>
     </div>

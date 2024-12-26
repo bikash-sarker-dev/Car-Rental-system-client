@@ -1,25 +1,81 @@
-import React from "react";
-import { useDropzone } from "react-dropzone";
+import React, { useState } from "react";
+import Dropzone from "react-dropzone";
 
 const DorpFile = () => {
-  const { acceptedFiles, getRootProps, getInputProps } = useDropzone();
-  const files = acceptedFiles.map((file) => (
-    <li key={file.path}>
-      {file.path} - {file.size} bytes
-    </li>
-  ));
+  const [file, setFile] = useState(null);
+
+  const handleUpload = async (acceptedFiles) => {
+    console.log("logging drop/selected file", acceptedFiles);
+    // fake request to upload file
+    const url = "https://api.escuelajs.co/api/v1/files/upload";
+    const formData = new FormData();
+    formData.append("file", acceptedFiles[0]);
+    // Assuming you only accept one file
+
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => {
+        if (response.ok) {
+          // File uploaded successfully
+          setFile(acceptedFiles[0]);
+        } else {
+          // File upload failed
+          console.error(response);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  console.log(file);
 
   return (
-    <section className="container">
-      <div {...getRootProps({ className: "dropzone" })}>
-        <input {...getInputProps()} />
-        <p>Drag 'n' drop some files here, or click to select files</p>
-      </div>
-      <aside>
-        <h4>Files</h4>
-        <ul>{files}</ul>
-      </aside>
-    </section>
+    <div className="main-container">
+      <Dropzone
+        onDrop={handleUpload}
+        accept="image/*"
+        minSize={1024}
+        maxSize={3072000}
+      >
+        {({
+          getRootProps,
+          getInputProps,
+          isDragActive,
+          isDragAccept,
+          isDragReject,
+        }) => {
+          const additionalClass = isDragAccept
+            ? "accept"
+            : isDragReject
+            ? "reject"
+            : "";
+
+          return (
+            <div
+              {...getRootProps({
+                className: `dropzone ${additionalClass}`,
+              })}
+            >
+              <input {...getInputProps()} />
+              <p>Drag'n'drop images, or click to select files</p>
+            </div>
+          );
+        }}
+      </Dropzone>
+      {file && (
+        <>
+          <h4>File Uploaded Successfully !!</h4>
+          <img
+            src={URL.createObjectURL(file)}
+            className="img-container"
+            alt="Uploaded file"
+          />
+        </>
+      )}
+    </div>
   );
 };
 
