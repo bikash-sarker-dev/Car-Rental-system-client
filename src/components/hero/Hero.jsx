@@ -18,16 +18,16 @@ const Hero = () => {
           data-aos-duration="1500"
           className="max-w-2xl text-center md:text-left py-24"
         >
-          <h3 className="uppercase tracking-[3px]  font-semibold text-xl">
+          <h3 className="uppercase tracking-[3px] text-car-background  font-semibold text-xl">
             buy or Sell your vehicles
           </h3>
-          <h1 className="mb-5 text-5xl  md:text-7xl font-extrabold leading-[60px] md:leading-[90px] my-6 tracking-[3px]">
-            Drive Your Dreams Today!
+          <h1 className="mb-5 text-5xl  md:text-7xl font-extrabold text-car-background leading-[60px] md:leading-[90px] my-6 tracking-[3px]">
+            Drive Your <span className="text-car-accent"> Dreams</span> Today!
           </h1>
 
           <Link
             to=""
-            className="btn  btn-outline border-[#ccc] text-[#fff] mt-5 rounded-none font-semibold uppercase tracking-[2px] px-8"
+            className="  py-4 rounded-md inline-block bg-car-accent border-none  text-car-background mt-5   font-semibold uppercase tracking-[2px] px-8"
           >
             Call To Action
           </Link>

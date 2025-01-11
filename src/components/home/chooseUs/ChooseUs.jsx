@@ -13,7 +13,7 @@ let sectionTitleContent = {
 
 const ChooseUs = () => {
   return (
-    <section className="my-32 " data-aos="fade-up" data-aos-duration="2000">
+    <section className="my-28 " data-aos="fade-up" data-aos-duration="2000">
       <div className="container">
         <SectionHeadTitle
           title={sectionTitleContent.title}
