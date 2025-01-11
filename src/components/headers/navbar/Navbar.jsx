@@ -53,11 +53,13 @@ const Navbar = () => {
   return (
     <div
       className={`${
-        scroll ? "sticky w-full bg-car-primary text-car-background " : ""
+        scroll
+          ? "sticky w-full bg-car-primary text-car-background py-2"
+          : "my-4"
       }`}
     >
       <div className="container">
-        <div className="navbar  my-4">
+        <div className="navbar  ">
           <div className="navbar-start">
             <div className="dropdown">
               <div

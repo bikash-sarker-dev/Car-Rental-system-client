@@ -6,7 +6,7 @@ const ListCart = ({ car }) => {
     <div
       data-aos="fade-up"
       data-aos-duration="2000"
-      className="card mb-5 md:card-side sm:flex items-center   rounded-none border border-base-300 bg-base-100 shadow-xl "
+      className="card mb-5 md:card-side sm:flex items-center   rounded-none border border-car-default bg-car-info shadow-md "
     >
       <figure>
         <img
@@ -25,7 +25,7 @@ const ListCart = ({ car }) => {
         <div className="card-actions justify-end">
           <Link
             to={`/details/${car?._id}`}
-            className="btn btn-md  btn-outline border-car-primary text-car-primary hover:bg-car-primary hover:text-car-white hover:border-car-primary"
+            className="btn btn-md  mt-3  btn-outline border-car-primary text-car-primary hover:bg-car-primary hover:text-car-white hover:border-car-primary"
           >
             Booking Now
           </Link>

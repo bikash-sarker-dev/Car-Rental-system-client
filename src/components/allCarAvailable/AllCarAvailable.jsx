@@ -24,20 +24,20 @@ const AllCarAvailable = () => {
     <div className="mb-24">
       <div className="container">
         <SearchAndsort setAllCar={setAllCar} allCar={allCar} />
-        <div className="flex justify-between mb-10">
+        <div className="flex justify-between my-10">
           <h2 className="text-xl font-bold">{gridAndList ? "Grid" : "List"}</h2>
           <div>
             {gridAndList ? (
               <button
                 onClick={() => setGridAndList(!gridAndList)}
-                className="text-2xl"
+                className="text-2xl text-car-accent"
               >
                 <TfiLayoutGrid3Alt />
               </button>
             ) : (
               <button
                 onClick={() => setGridAndList(!gridAndList)}
-                className="text-2xl"
+                className="text-2xl text-car-accent"
               >
                 <FaList />
               </button>

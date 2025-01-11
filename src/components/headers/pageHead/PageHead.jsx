@@ -15,7 +15,7 @@ const PageHead = ({ title }) => {
       <h2
         data-aos="fade-up"
         data-aos-duration="2000"
-        className="text-5xl font-bold text-clip text-car-white"
+        className="text-5xl font-bold text-clip text-car-background"
       >
         {title}
       </h2>
