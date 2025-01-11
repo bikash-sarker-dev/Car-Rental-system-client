@@ -57,3 +57,9 @@ body {
 .table-modify th {
   width: 210px;
 }
+
+.menu li > *:not(ul, .menu-title, details, .btn).active {
+  background-color: #e98c4e;
+  font-weight: 700;
+  color: #130d00;
+}

@@ -18,29 +18,44 @@ const Navbar = () => {
   let Links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink className="font-medium text-base" to="/">
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/car-available">Car Available</NavLink>
+        <NavLink className="font-medium text-base" to="/car-available">
+          Car Available
+        </NavLink>
       </li>
       {user && user.email && (
         <>
           {" "}
           <li>
-            <NavLink to="/carAdd">Add Car </NavLink>
+            <NavLink className="font-medium text-base" to="/carAdd">
+              Add Car{" "}
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/my-car"> My Car </NavLink>
+            <NavLink className="font-medium text-base" to="/my-car">
+              {" "}
+              My Car{" "}
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/my-booking">My Booking</NavLink>
+            <NavLink className="font-medium text-base" to="/my-booking">
+              My Booking
+            </NavLink>
           </li>
         </>
       )}
     </>
   );
   return (
-    <div className={`${scroll ? "sticky w-full bg-car-secondary " : ""}`}>
+    <div
+      className={`${
+        scroll ? "sticky w-full bg-car-primary text-car-background " : ""
+      }`}
+    >
       <div className="container">
         <div className="navbar  my-4">
           <div className="navbar-start">

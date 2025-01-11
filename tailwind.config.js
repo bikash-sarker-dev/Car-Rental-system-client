@@ -5,9 +5,11 @@ export default {
     extend: {},
 
     colors: {
-      "car-primary": "#e3740e ",
-      "car-secondary": "#b45309 ",
-      "car-white": "#ffffff ",
+      "car-text": "#16110e",
+      "car-background": "#fcfaf8",
+      "car-primary": "#c17644",
+      "car-secondary": "#e6b394",
+      "car-accent": "#e98c4e",
     },
   },
   plugins: [require("daisyui")],
