@@ -35,7 +35,7 @@ const LoginForm = () => {
       });
   };
   return (
-    <section className="my-24">
+    <section className="py-24 bg-car-info">
       <div className="container">
         <div className="  md:flex gap-5 items-center ">
           <div className="md:w-1/2">
@@ -46,7 +46,7 @@ const LoginForm = () => {
               <FormHeading title="Log In to your Account" />
             </div>
 
-            <div className=" card bg-base-100 dark:bg-slate-600 w-full rounded-none   max-w-xl mx-auto mb-32 ">
+            <div className=" card  dark:bg-slate-600 w-full rounded-none   max-w-xl mx-auto mb-32 ">
               <form
                 onSubmit={handleLoginSubmit}
                 className="card-body p-3 md:p-10 "
@@ -59,7 +59,7 @@ const LoginForm = () => {
                     type="email"
                     name="email"
                     placeholder="Enter email"
-                    className="p-3 border-b text-gray-900 focus:outline-none focus:border-sky-500   focus:ring-sky-500"
+                    className="p-3 border-b bg-car-info focus:outline-none focus:border-sky-500   focus:ring-sky-500"
                     required
                   />
                 </div>
@@ -73,7 +73,7 @@ const LoginForm = () => {
                     type={passShow ? "text" : "password"}
                     name="password"
                     placeholder="password"
-                    className="p-3 border-b focus:outline-none focus:border-sky-500 text-gray-900 focus:ring-sky-500"
+                    className="p-3 border-b  bg-car-info focus:outline-none focus:border-sky-500 text-gray-900 focus:ring-sky-500"
                     required
                   />
                   <div className="absolute  right-5 top-9 dark:top-12 ">
@@ -97,7 +97,7 @@ const LoginForm = () => {
                 <p className="text-gray-500 dark:text-white">
                   New User ?{" "}
                   <Link
-                    className="text-blue-600 dark:text-orange-600 font-semibold underline"
+                    className="text-blue-600 text-car-accent dark:text-orange-600 font-semibold underline"
                     to="/register"
                   >
                     SIGN UP HERE

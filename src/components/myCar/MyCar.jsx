@@ -94,10 +94,10 @@ const MyCar = () => {
   return (
     <div>
       <div className="container">
-        <div className="mb-10">
+        <div className="mb-10 bg-car-default p-4 ">
           <select
             defaultValue="Car Sorting or filter?"
-            className="select select-bordered w-full max-w-xs"
+            className="select select-bordered w-full max-w-xs bg-car-background"
             onChange={handleChangeSorting}
           >
             <option disabled>Car Sorting or filter?</option>
@@ -111,7 +111,7 @@ const MyCar = () => {
           <table className="table">
             {/* head */}
             <thead>
-              <tr className="bg-car-secondary hidden sm:block text-car-white font-bold text-[15px]">
+              <tr className="bg-car-accent hidden py-2 sm:block text-car-text font-bold text-[15px]">
                 <th>ON</th>
                 <th>Car Image</th>
                 <th>Car Model</th>
@@ -156,7 +156,7 @@ const MyCar = () => {
                   <tr
                     data-aos="fade-up"
                     data-aos-duration="2000"
-                    className=" flex sm:flex-none  flex-col sm:flex-row bg-neutral-100 my-5 sm:bg-car-white"
+                    className=" flex sm:flex-none  flex-col sm:flex-row bg-car-info my-5 sm:bg-car-white"
                     key={car?._id}
                   >
                     <td>{i + 1}</td>
@@ -200,7 +200,7 @@ const MyCar = () => {
                           document.getElementById("update_Id").showModal();
                           handleUpdateData(car?._id);
                         }}
-                        className="btn bg-car-primary text-car-white hover:text-[#000] text-2xl mx-1"
+                        className="btn bg-car-secondary text-car-white hover:text-[#000] text-2xl mx-1"
                       >
                         <MdOutlineEdit />
                       </button>

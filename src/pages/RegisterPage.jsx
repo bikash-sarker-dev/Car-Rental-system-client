@@ -5,9 +5,9 @@ import RegisterForm from "../components/register/RegisterForm";
 
 const RegisterPage = () => {
   return (
-    <div>
+    <div className="bg-car-info">
       <TapHead title="Car | Register" />
-      <div className="mt-24">
+      <div className="pt-24 bg-car-info">
         <FormHeading title="Get started with easily register" />
       </div>
       <RegisterForm />

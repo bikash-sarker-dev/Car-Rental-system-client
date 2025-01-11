@@ -59,14 +59,14 @@ const RegisterForm = () => {
       });
   };
   return (
-    <section className="my-32">
+    <section className="py-28 bg-car-info">
       <div className="container">
         <div className="md:flex gap-5">
           <div className="md:w-1/2">
             <Lottie animationData={registerLottieFile} loop={true} />
           </div>
           <div className="md:w-1/2">
-            <div className="card bg-base-100 w-full dark:bg-slate-600 shrink-0 shadow-2xl  mx-auto ">
+            <div className="card  w-full dark:bg-slate-600 shrink-0 shadow-2xl  mx-auto ">
               <form
                 onSubmit={handleRegisterSubmit}
                 className="card-body px-3 md:px-10"
@@ -81,7 +81,7 @@ const RegisterForm = () => {
                     type="text"
                     name="username"
                     placeholder="Enter user name"
-                    className="p-3 border-b text-gray-900 focus:outline-none focus:border-sky-500 focus:ring-sky-500"
+                    className="p-3 border-b bg-car-info text-gray-900 focus:outline-none focus:border-sky-500 focus:ring-sky-500"
                     required
                   />
                 </div>
@@ -95,7 +95,7 @@ const RegisterForm = () => {
                     type="url"
                     name="photo"
                     placeholder="Enter photo url"
-                    className="p-3 border-b text-gray-900 focus:outline-none focus:border-sky-500 focus:ring-sky-500"
+                    className="p-3 border-b bg-car-info text-gray-900 focus:outline-none focus:border-sky-500 focus:ring-sky-500"
                     required
                   />
                 </div>
@@ -107,7 +107,7 @@ const RegisterForm = () => {
                     type="email"
                     name="email"
                     placeholder="Enter email"
-                    className="p-3 border-b text-gray-900 focus:outline-none focus:border-sky-500 focus:ring-sky-500"
+                    className="p-3 border-b bg-car-info text-gray-900 focus:outline-none focus:border-sky-500 focus:ring-sky-500"
                     required
                   />
                 </div>
@@ -121,7 +121,7 @@ const RegisterForm = () => {
                     type={passShow ? "text" : "password"}
                     name="password"
                     placeholder="password"
-                    className="p-3 border-b text-gray-900 focus:outline-none focus:border-sky-500 focus:ring-sky-500"
+                    className="p-3 border-b bg-car-info text-gray-900 focus:outline-none focus:border-sky-500 focus:ring-sky-500"
                     required
                   />
                   <div className="absolute  right-5  dark:top-12 top-9 ">

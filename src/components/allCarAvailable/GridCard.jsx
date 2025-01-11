@@ -12,7 +12,7 @@ const GridCard = ({ car }) => {
         <img
           src={car?.photo}
           alt="Shoes"
-          className="transition duration-500 ease-out group-hover:scale-125 h-[230px]"
+          className="transition  duration-500 ease-out group-hover:scale-125 md:h-[230px]"
         />
         <span className="absolute  right-0 bottom-0 bg-car-primary py-2 px-4 font-semibold text-xl text-base-100 tracking-wider">
           ${car?.price}/day

@@ -10,12 +10,12 @@ const PageHead = ({ title }) => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      className="bg-bottom py-32 bg-blend-overlay text-center "
+      className="bg-bottom py-24 lg:py-32 bg-blend-overlay text-center "
     >
       <h2
         data-aos="fade-up"
         data-aos-duration="2000"
-        className="text-5xl font-bold text-clip text-car-background"
+        className="text-4xl lg:text-5xl font-bold text-clip text-car-background"
       >
         {title}
       </h2>

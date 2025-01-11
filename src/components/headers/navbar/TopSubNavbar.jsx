@@ -44,7 +44,7 @@ const TopSubNavbar = () => {
             {user && user?.email ? (
               <button
                 onClick={handleLogout}
-                className="font-medium hover:bg-car-secondary hover:text-car-text  btn btn-sm btn-outline hover:border-car-secondary  rounded-3xl min-h-7 h-7 tracking-wider"
+                className="font-medium hover:bg-car-secondary text-base-100 hover:text-car-text  btn btn-sm btn-outline hover:border-car-secondary  rounded-3xl min-h-7 h-7 tracking-wider"
               >
                 LOGOUT
               </button>

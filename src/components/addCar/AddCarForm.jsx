@@ -40,8 +40,8 @@ const AddCarForm = () => {
   };
   return (
     <div>
-      <div className="card bg-base-100 w-full  shrink-0 shadow-2xl my-14">
-        <form onSubmit={handleAddCarSubmit} className="card-body">
+      <div className="card  w-full  shrink-0 shadow-2xl my-14 lg:my-24 bg-car-info">
+        <form onSubmit={handleAddCarSubmit} className="card-body p-4 md:p-10">
           {/* row 1 */}
           <div className="sm:flex gap-8">
             <div className="form-control sm:flex-1">
@@ -52,7 +52,7 @@ const AddCarForm = () => {
                 type="text"
                 name="carModel"
                 placeholder="Enter cat model"
-                className="input input-bordered"
+                className="input input-bordered bg-car-background"
                 required
               />
             </div>
@@ -66,7 +66,7 @@ const AddCarForm = () => {
                 type="text"
                 name="registrationNumber"
                 placeholder="Enter Vehicle Registration Number"
-                className="input input-bordered"
+                className="input input-bordered bg-car-background"
                 required
               />
             </div>
@@ -81,7 +81,7 @@ const AddCarForm = () => {
                 type="text"
                 name="brand"
                 placeholder="Enter cat brand"
-                className="input input-bordered"
+                className="input input-bordered bg-car-background"
                 required
               />
             </div>
@@ -93,7 +93,7 @@ const AddCarForm = () => {
               <DatePicker
                 selected={startDate}
                 onChange={(date) => setStartDate(date)}
-                className="input input-bordered w-full"
+                className="input input-bordered bg-car-background w-full"
               />
             </div>
           </div>
@@ -107,8 +107,8 @@ const AddCarForm = () => {
               <input
                 type="number"
                 name="price"
-                placeholder="Enter Daily Rental Price<"
-                className="input input-bordered"
+                placeholder="Enter Daily Rental Price"
+                className="input input-bordered bg-car-background"
                 required
               />
             </div>
@@ -137,7 +137,7 @@ const AddCarForm = () => {
                 type="url"
                 name="photo"
                 placeholder="Enter photo url"
-                className="input input-bordered"
+                className="input input-bordered bg-car-background"
                 required
               />
             </div>
@@ -149,7 +149,7 @@ const AddCarForm = () => {
                 type="text"
                 name="location"
                 placeholder="Enter Daily Rental Price<"
-                className="input input-bordered"
+                className="input input-bordered bg-car-background"
                 required
               />
             </div>
