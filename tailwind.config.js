@@ -10,6 +10,7 @@ export default {
       "car-primary": "#c17644",
       "car-secondary": "#e6b394",
       "car-accent": "#e98c4e",
+      "car-info": "#FCF6EC",
     },
   },
   plugins: [require("daisyui")],
