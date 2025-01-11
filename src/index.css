@@ -51,6 +51,12 @@ body {
   width: 160px;
 }
 
+@media only screen and (max-width: 600px) {
+  .table-modify td {
+    width: 100%;
+  }
+}
+
 .table-modify td:first-child {
   width: auto;
 }

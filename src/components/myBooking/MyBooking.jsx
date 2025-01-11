@@ -153,7 +153,7 @@ const MyBooking = () => {
         <table className="table  ">
           {/* head */}
           <thead>
-            <tr className="bg-car-secondary hidden sm:block text-car-white font-bold text-[15px]">
+            <tr className="bg-car-accent py-2 text-car-text hidden sm:block text-car-white font-bold text-[15px]">
               <th>ON</th>
               <th>Car Image</th>
               <th>Car Model</th>
@@ -170,13 +170,13 @@ const MyBooking = () => {
                 data-aos="fade-up"
                 data-aos-duration="2000"
                 key={car?._id}
-                className="hover flex sm:flex-none  flex-col sm:flex-row bg-neutral-100 my-5 sm:bg-car-white"
+                className="hover flex sm:flex-none w-full  flex-col sm:flex-row bg-car-info my-5 sm:bg-car-white"
               >
                 <td className="flex sm:flex-none justify-between items-center ">
                   <p className="sm:hidden font-bold">NO</p>
                   <p>{i + 1}</p>
                 </td>
-                <td className="flex sm:flex-none justify-between items-center ">
+                <td className="flex sm:flex-none w-full justify-between items-center ">
                   <p className="sm:hidden font-bold">Car Image</p>
                   <div className="flex items-center gap-3">
                     <div className="avatar">
@@ -234,13 +234,13 @@ const MyBooking = () => {
                   <div>
                     <button
                       onClick={() => handleDateModify(car._id)}
-                      className="btn btn-sm bg-car-primary text-car-white hover:text-[#000] text-sm mx-1"
+                      className="btn btn-sm bg-car-secondary text-car-text w-full text-car-white hover:text-[#000] text-sm mx-1"
                     >
                       Modify Date
                     </button>
                     <button
                       onClick={() => handleCancelBooking(car?._id)}
-                      className="btn btn-sm bg-[#dc2626] text-car-white hover:text-[#000] text-sm mx-1"
+                      className="btn btn-sm bg-[#dc2626] text-car-background w-full mt-3  hover:text-[#000] text-sm mx-1"
                     >
                       Cancel
                     </button>
@@ -253,8 +253,8 @@ const MyBooking = () => {
       </div>
       {/* Open the modal using document.getElementById('ID').showModal() method */}
 
-      <dialog id="dateModal" className="modal">
-        <div className="modal-box ">
+      <dialog id="dateModal" className="modal ">
+        <div className="modal-box bg-car-default">
           <h3 className="font-bold text-lg text-center my-5">Date Modify</h3>
           <div className="flex justify-between  h-[300px]">
             <div>
