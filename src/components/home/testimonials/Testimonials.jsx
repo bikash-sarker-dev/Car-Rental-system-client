@@ -55,7 +55,6 @@ const Testimonials = () => {
           <SwiperSlide>
             <CardTestimonials />
           </SwiperSlide>
-          ...
         </Swiper>
       </div>
     </section>

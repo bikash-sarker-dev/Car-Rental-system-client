@@ -5,10 +5,12 @@ const CardTestimonials = () => {
     <div
       data-aos="fade-up"
       data-aos-duration="2000"
-      className="card card-compact bg-base-100 rounded-none p-4  shadow-xl"
+      className="card card-compact bg-car-secondary rounded-sm text-car-text p-4  shadow-xl"
     >
       <div className="card-body">
-        <h2 className="card-title">Super Convenient</h2>
+        <h2 style={{ color: "#130d00" }} className="card-title ">
+          Super Convenient
+        </h2>
         <p>
           The booking system on this site is top-notch. Everything is laid out
           clearly, and there are multiple payment options, which makes things

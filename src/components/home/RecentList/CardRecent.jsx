@@ -6,7 +6,7 @@ const CardRecent = ({ car }) => {
     <div
       data-aos="fade-up"
       data-aos-duration="2000"
-      className="card group bg-base-100 transition duration-200  rounded-none hover:shadow-xl border border-neutral-200"
+      className="card group bg-car-info  transition duration-200  rounded-none hover:shadow-xl border border-car-default shadow-md"
     >
       <figure className="relative">
         <img
@@ -24,13 +24,13 @@ const CardRecent = ({ car }) => {
           <div className="badge badge-secondary">NEW</div>
         </h2>
         <p>Registration Number: {car?.registrationNumber}</p>
-        <p>Availability: {car?.availability}</p>
+
         <p>Date Posted: {moment(car?.date).startOf("day").fromNow()}</p>
 
         <div className="card-actions justify-end">
           <Link
             to={`/details/${car?._id}`}
-            className="btn btn-sm   btn-outline border-car-primary text-car-primary hover:bg-car-primary hover:text-car-white hover:border-car-primary"
+            className="btn btn-md  mt-3  btn-outline border-car-primary text-car-primary hover:bg-car-primary hover:text-car-white hover:border-car-primary"
           >
             Booking Now
           </Link>
