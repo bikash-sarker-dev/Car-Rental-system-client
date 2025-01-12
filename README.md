@@ -4,18 +4,6 @@
 
 My application is for booking cars. There are many more functions in this application that one can do in this application. To enjoy Full Api Ki, you first need to log in, register, and after registering, you need to log in. Once you are logged in, you will find many features here. You can add a car here and show that car there. You can also delete this if you want or update it if you like something. There are many things here like in the subheader you will get login register with live date and time view . If you want, you can view the card details from here. There is a booking now button there, clicking on it will give you a prop. You need to select the property date and date line from which date you will rent it. Then once these bookings are confirmed, you will be able to see all the information that you have received the booking and you can edit it if you want, such as editing the booking status, then the date line, then clicking the cancel button. There are many more tasks that remain, you can see them while using the application.
 
-#### My Server GitHub private repositories link:
-
-- [https://github.com/programming-hero-web-course2/b10a11-server-side-bikash-sarker-dev.git](https://github.com/programming-hero-web-course2/b10a11-server-side-bikash-sarker-dev.git)
-
-#### My Client GitHub private repositories link:
-
-- [https://github.com/programming-hero-web-course2/b10a11-client-side-bikash-sarker-dev.git](https://github.com/programming-hero-web-course2/b10a11-client-side-bikash-sarker-dev.git)
-
-#### live website link:
-
-- [https://cars-rental-systems.netlify.app](https://cars-rental-systems.netlify.app/)
-
 ### 5 bullet points to feature your website.
 
 - Here you can see the recent cars and there is a button called Booking, clicking on it will take you to the booking page.
@@ -49,12 +37,10 @@ My application is for booking cars. There are many more functions in this applic
 - react-dropzone
 - react-datepicker
 
-### The Server Side Package Use in application :
+#### Server GitHub repositories link:
 
-- cors
-- dotenv
-- express
-- mongodb
-- nodemon
-- cookie-parser
-- jsonwebtoken
+- [https://github.com/bikash-sarker-dev/Car-Rental-system-server.git](https://github.com/bikash-sarker-dev/Car-Rental-system-server.git)
+
+#### live website link:
+
+- [https://cars-rental-systems.netlify.app](https://cars-rental-systems.netlify.app)
