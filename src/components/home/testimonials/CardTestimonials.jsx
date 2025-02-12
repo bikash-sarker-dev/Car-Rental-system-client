@@ -17,7 +17,7 @@ const CardTestimonials = ({ review }) => {
           <div className="flex items-center gap-4 mt-4">
             <div className="avatar">
               <div className="ring-primary ring-offset-base-100 w-16 rounded-full  ring-offset-2">
-                <img src={image} />
+                <img src={image} alt="image is not a support" />
               </div>
             </div>
             <div>
