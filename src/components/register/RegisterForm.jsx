@@ -3,7 +3,7 @@ import Lottie from "lottie-react";
 import { useState } from "react";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import registerLottieFile from "../../assets/lottieFile/register.json";
 import { useAuth } from "../../hooks/useAuth";
 
@@ -50,20 +50,23 @@ const RegisterForm = () => {
           })
           .catch((error) => {
             const errorMessage = error.message;
-            if (errorMessage.includes("auth/email-already-in-use")) {
-              toast.warn("the Email already used. please give you new email.");
-              setLoading(false);
-            }
+
             console.log(errorMessage);
           });
       })
       .catch((error) => {
+        setLoading(false);
         const errorMessage = error.message;
+        if (errorMessage.includes("auth/email-already-in-use")) {
+          alert("yes");
+          toast.warn("the Email already used. please give you new email.");
+        }
         console.log(errorMessage);
       });
   };
   return (
     <section className="py-28 bg-car-info">
+      <ToastContainer />
       <div className="container">
         <div className="md:flex gap-5">
           <div className="md:w-1/2">

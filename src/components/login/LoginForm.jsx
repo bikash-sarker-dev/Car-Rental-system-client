@@ -22,7 +22,6 @@ const LoginForm = () => {
     loginAccount(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-
         toast.success("Your are login Successfully !");
         navigate("/");
       })
