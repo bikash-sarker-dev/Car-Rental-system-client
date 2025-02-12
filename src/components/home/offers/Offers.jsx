@@ -14,7 +14,7 @@ const Offers = () => {
           className="md:flex gap-6 mb-32"
         >
           <div className="md:w-1/2 mb-5 ">
-            <img className="w-full" src={offer1} alt="" />
+            <img className="w-full" src={offer1} alt="not support image" />
             <div className="flex mt-3">
               <button className="btn bg-car-primary  md:w-1/2">
                 Learn More
@@ -23,7 +23,7 @@ const Offers = () => {
             </div>
           </div>
           <div className="md:w-1/2">
-            <img src={offer2} alt="" />
+            <img src={offer2} alt="not support image" />
             <div className="flex mt-3 ">
               <button className="btn bg-car-primary md:w-1/2">
                 Learn More
