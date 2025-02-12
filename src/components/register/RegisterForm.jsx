@@ -9,7 +9,7 @@ import { useAuth } from "../../hooks/useAuth";
 
 const RegisterForm = () => {
   const [passShow, setPassShow] = useState(false);
-  const { createNewAccount } = useAuth();
+  const { createNewAccount, setLoading } = useAuth();
   const navigate = useNavigate();
 
   const handleRegisterSubmit = (e) => {
@@ -50,6 +50,10 @@ const RegisterForm = () => {
           })
           .catch((error) => {
             const errorMessage = error.message;
+            if (errorMessage.includes("auth/email-already-in-use")) {
+              toast.warn("the Email already used. please give you new email.");
+              setLoading(false);
+            }
             console.log(errorMessage);
           });
       })
