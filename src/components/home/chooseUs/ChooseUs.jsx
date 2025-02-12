@@ -22,7 +22,8 @@ const ChooseUs = () => {
         <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-5">
           <div className="card bg-car-info  shadow-md text-car-text rounded-md">
             <div className="card-body items-center text-center">
-              <img className="fill-car-primary" src={variety} alt="" />
+              <img className="" src={variety} alt="" />
+
               <h2 className="card-title">Wide Variety of Cars</h2>
               <p>If a dog chews shoes whose shoes does he choose?</p>
             </div>

@@ -1,31 +1,29 @@
 import React from "react";
 
-const CardTestimonials = () => {
+const CardTestimonials = ({ review }) => {
+  console.log(review);
+  const { customerName, image, profession, feedback, date } = review || {};
   return (
     <div
       data-aos="fade-up"
       data-aos-duration="2000"
-      className="card card-compact bg-car-secondary rounded-sm text-car-text p-4  shadow-xl"
+      className="card card-compact bg-car-secondary rounded-sm text-car-text p-4 min-h-[280px] shadow-xl"
     >
       <div className="card-body">
         <h2 style={{ color: "#130d00" }} className="card-title ">
-          Super Convenient
+          Date: {date}
         </h2>
-        <p>
-          The booking system on this site is top-notch. Everything is laid out
-          clearly, and there are multiple payment options, which makes things
-          super convenient.
-        </p>
+        <p>{feedback}</p>
         <div className="flex gap-5 items-center justify-between">
           <div className="flex items-center gap-4 mt-4">
             <div className="avatar">
               <div className="ring-primary ring-offset-base-100 w-16 rounded-full  ring-offset-2">
-                <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                <img src={image} />
               </div>
             </div>
             <div>
-              <h3 className="text-lg font-bold">Aten john</h3>
-              <p>jakatar</p>
+              <h3 className="text-lg font-bold">{customerName}</h3>
+              <p>{profession}</p>
             </div>
           </div>
           <div className="rating rating-sm mr-5 mt-5">
