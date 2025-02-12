@@ -22,8 +22,8 @@ const LoginForm = () => {
     loginAccount(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log("login");
-        toast.success("Your are Login Successful");
+
+        toast.success("Your are login Successfully !");
         navigate("/");
       })
       .catch((error) => {
