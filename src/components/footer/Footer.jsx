@@ -7,10 +7,13 @@ const Footer = () => {
     <footer className="bg-car-default">
       <div className="container">
         <div className="footer text-base-content p-10 pt-20">
-          <aside>
+          <aside className="max-w-sm">
             <PiCarProfileDuotone className="text-7xl text-car-primary" />
-            <p className="text-xl">
-              Car Rental System <br /> application Ltd .
+            <h3 className="text-xl">Car Rental System application Ltd .</h3>
+            <p className="text-car-text opacity-70">
+              Application Ltd's Car Rental System offers seamless booking,
+              vehicle management, and real-time availability for efficient,
+              user-friendly rental experiences.
             </p>
           </aside>
           <nav>
