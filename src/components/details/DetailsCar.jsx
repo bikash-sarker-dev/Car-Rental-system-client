@@ -70,7 +70,7 @@ const DetailsCar = () => {
         data-aos-duration="2000"
         className="hero min-h-screen container"
       >
-        <div className="flex-col my-20">
+        <div className="flex-col mb-10 mt-8">
           <img
             src={detailsData?.photo}
             className=" my-10 rounded-lg shadow-2xl md:min-w-[700px] lg:max-h-[700px]"
