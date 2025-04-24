@@ -20,7 +20,7 @@ const ChooseUs = () => {
           description={sectionTitleContent.description}
         />
         <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-5">
-          <div className="card bg-car-info  shadow-md text-car-text rounded-md">
+          <div className="card bg-car-info  shadow-md text-car-text rounded-md hover:bg-car-secondary transition-all duration-300">
             <div className="card-body items-center text-center">
               <img className="" src={variety} alt="" />
 
