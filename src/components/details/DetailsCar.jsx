@@ -111,7 +111,7 @@ const DetailsCar = () => {
               <p className="text-gray-500  mt-4 font-bold">Features :</p>
               <ul>
                 {detailsData?.features.map((feature, i) => (
-                  <li className="ml-5" key={feature}>
+                  <li className="ml-5 mt-1" key={feature}>
                     {i + 1} . {feature}
                   </li>
                 ))}
