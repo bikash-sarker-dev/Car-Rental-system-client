@@ -29,7 +29,7 @@ const ChooseUs = () => {
             </div>
           </div>
           {/* one  */}
-          <div className="card bg-car-info  shadow-md text-car-text rounded-md">
+          <div className="card bg-car-info  shadow-md text-car-text rounded-md hover:bg-car-secondary transition-all duration-300">
             <div className="card-body items-center text-center">
               <img src={price} alt="" />
               <h2 className="card-title">Aordable Prices</h2>
@@ -37,7 +37,7 @@ const ChooseUs = () => {
             </div>
           </div>
           {/* two  */}
-          <div className="card bg-car-info  shadow-md text-car-text rounded-md">
+          <div className="card bg-car-info  shadow-md text-car-text rounded-md hover:bg-car-secondary transition-all duration-300">
             <div className="card-body items-center text-center">
               <img src={booking} alt="" />
               <h2 className="card-title">Easy Booking Process</h2>
@@ -45,7 +45,7 @@ const ChooseUs = () => {
             </div>
           </div>
           {/* three  */}
-          <div className="card bg-car-info  shadow-md text-car-text rounded-md">
+          <div className="card bg-car-info  shadow-md text-car-text rounded-md hover:bg-car-secondary transition-all duration-300">
             <div className="card-body items-center text-center">
               <img src={support} alt="" />
               <h2 className="card-title">Customer Support</h2>
