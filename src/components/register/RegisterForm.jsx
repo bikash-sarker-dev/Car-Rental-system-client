@@ -155,7 +155,7 @@ const RegisterForm = () => {
                 <p className="text-gray-500 dark:text-white ">
                   Already have an account ?{" "}
                   <Link
-                    className="text-blue-600 font-semibold dark:text-orange-600  underline"
+                    className="text-blue-600 font-semibold dark:text-orange-600 text-car-primary  underline"
                     to="/login"
                   >
                     LOGIN HERE
