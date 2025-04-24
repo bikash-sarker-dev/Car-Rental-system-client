@@ -6,7 +6,7 @@ const CardTestimonials = ({ review }) => {
     <div
       data-aos="fade-up"
       data-aos-duration="2000"
-      className="card card-compact bg-car-secondary rounded-sm text-car-text p-4 min-h-[280px] shadow-xl"
+      className="card card-compact bg-car-primary rounded-lg text-car-text p-4 min-h-[280px] shadow-xl"
     >
       <div className="card-body">
         <h2 style={{ color: "#130d00" }} className="card-title ">
