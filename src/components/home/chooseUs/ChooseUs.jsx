@@ -8,7 +8,7 @@ import SectionHeadTitle from "../../headers/sectionHead/SectionHeadTitle";
 let sectionTitleContent = {
   title: "Why Choose Us?",
   description:
-    "Highlight your platform's unique selling points to build trust and draw user interest",
+    "Highlight your platform's unique selling points to build trust and draw user interested",
 };
 
 const ChooseUs = () => {
