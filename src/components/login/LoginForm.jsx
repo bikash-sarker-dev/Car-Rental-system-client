@@ -58,7 +58,7 @@ const LoginForm = () => {
                     type="email"
                     name="email"
                     placeholder="Enter email"
-                    className="p-3 border-b bg-car-info focus:outline-none focus:border-sky-500   focus:ring-sky-500"
+                    className="p-3 border-b border-b-car-primary bg-car-info focus:outline-none focus:border-sky-500   focus:ring-sky-500"
                     required
                   />
                 </div>
@@ -72,7 +72,7 @@ const LoginForm = () => {
                     type={passShow ? "text" : "password"}
                     name="password"
                     placeholder="password"
-                    className="p-3 border-b  bg-car-info focus:outline-none focus:border-sky-500 text-gray-900 focus:ring-sky-500"
+                    className="p-3 border-b border-b-car-primary  bg-car-info focus:outline-none focus:border-sky-500 text-gray-900 focus:ring-sky-500"
                     required
                   />
                   <div className="absolute  right-5 top-9 dark:top-12 ">
