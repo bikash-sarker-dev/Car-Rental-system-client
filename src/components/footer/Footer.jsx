@@ -18,28 +18,48 @@ const Footer = () => {
           </aside>
           <nav>
             <h6 className="footer-title">Company</h6>
-            <Link className="link link-hover" to="/">
+            <Link className="link link-hover hover:text-car-primary" to="/">
               Home
             </Link>
-            <Link className="link link-hover" to="/car-available">
+            <Link
+              className="link link-hover hover:text-car-primary"
+              to="/car-available"
+            >
               Car Available
             </Link>
-            <Link className="link link-hover" to="/my-car">
+            <Link
+              className="link link-hover hover:text-car-primary"
+              to="/my-car"
+            >
               My Car
             </Link>
-            <Link className="link link-hover" to="/carAdd">
+            <Link
+              className="link link-hover hover:text-car-primary"
+              to="/carAdd"
+            >
               Add Car
             </Link>
-            <Link className="link link-hover" to="/my-booking">
+            <Link
+              className="link link-hover hover:text-car-primary"
+              to="/my-booking"
+            >
               My Booking
             </Link>
           </nav>
           <nav>
             <h6 className="footer-title">Services</h6>
-            <a className="link link-hover">Wide Variety of Cars</a>
-            <a className="link link-hover">Affordable Prices</a>
-            <a className="link link-hover">Customer Support</a>
-            <a className="link link-hover">Advertisement</a>
+            <a className="link link-hover hover:text-car-primary">
+              Wide Variety of Cars
+            </a>
+            <a className="link link-hover hover:text-car-primary">
+              Affordable Prices
+            </a>
+            <a className="link link-hover hover:text-car-primary">
+              Customer Support
+            </a>
+            <a className="link link-hover hover:text-car-primary">
+              Advertisement
+            </a>
           </nav>
 
           <nav>
