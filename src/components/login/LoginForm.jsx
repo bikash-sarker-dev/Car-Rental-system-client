@@ -94,7 +94,7 @@ const LoginForm = () => {
               </form>
               <div className="text-center mb-6">
                 <p className="text-gray-500 dark:text-white">
-                  New User ?{" "}
+                  Your Create New User ?{" "}
                   <Link
                     className="text-blue-600 text-car-accent dark:text-orange-600 font-semibold underline"
                     to="/register"
